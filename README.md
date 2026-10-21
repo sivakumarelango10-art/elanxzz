@@ -16,7 +16,8 @@ Plain HTML, CSS and JavaScript. No framework and no build step.
 
 ```
 index.html          the whole site: styles, markup and scripts
-assets/elango.webp  my cutout photo (background removed, colour graded)
+assets/elango.webp    hero, stack and project-room photo (background removed, colour graded)
+assets/elango-2.webp  finale photo
 assets/og.jpg       link-preview image for WhatsApp, LinkedIn, X
 resume.pdf          opened by the Resume buttons
 favicon.svg         browser tab icon
@@ -31,7 +32,7 @@ Everything personal lives in the `CONFIG` object near the top of the `<script>` 
 - `years` — timeline milestones
 - `projects` — title, stack, description and `links` (add a `Launch live` URL to any project)
 
-To change the photo, replace `assets/elango.webp` with a transparent image of the same proportions (waist-up works best). To update the resume, replace `resume.pdf`.
+To change a photo, replace `assets/elango.webp` (or `assets/elango-2.webp` for the finale) with a transparent image of the same proportions (waist-up works best). To update the resume, replace `resume.pdf`.
 
 ## Run locally
 

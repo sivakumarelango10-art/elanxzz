@@ -345,9 +345,14 @@ dialog p{color:var(--ash);margin:0 0 6px}
 .finale{position:relative;overflow:hidden;text-align:center;background:radial-gradient(ellipse 60% 55% at 50% 70%,rgba(196,66,15,.38),transparent 70%),var(--ink)}
 .finale > *:not(.fin-light){position:relative;z-index:1}
 .fin-light{position:absolute;left:0;top:0;width:72vmin;height:72vmin;border-radius:50%;background:radial-gradient(circle,rgba(255,140,30,.2),transparent 65%);pointer-events:none;z-index:0;will-change:transform;transform:translate3d(50vw,40%,0) translate(-50%,-50%)}
-.finale h2{font-size:clamp(3.4rem,13vw,12rem);line-height:.86}
-.finale h2 .serif{display:block;font-size:.42em;margin-top:.15em}
-.term{max-width:640px;margin:clamp(32px,6vh,56px) auto 0;text-align:left;background:rgba(18,15,11,.92);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.fin-grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:clamp(16px,3vw,40px)}
+.fin-main{min-width:0;text-align:left}
+.fin-main .contact-row{justify-content:flex-start}
+.fin-fig{position:relative;height:clamp(520px,80vh,780px);align-self:end;will-change:translate}
+.fin-fig .slate{position:absolute;top:6%;right:0;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.14em;color:var(--ash);writing-mode:vertical-rl;border-left:1px solid var(--line);padding-left:8px}
+.finale h2{font-size:clamp(3.4rem,7.6vw,8.4rem);line-height:.86}
+.finale h2 .serif{display:block;font-size:.5em;margin-top:.15em}
+.term{max-width:640px;margin:clamp(28px,5vh,48px) 0 0;text-align:left;background:rgba(18,15,11,.92);border:1px solid var(--line);border-radius:8px;overflow:hidden}
 .term-bar{display:flex;gap:6px;padding:10px 12px;border-bottom:1px solid var(--line)}
 .term-bar i{width:9px;height:9px;border-radius:50%;background:var(--line)}
 .term-bar i:first-child{background:var(--ember)}
@@ -359,6 +364,15 @@ dialog p{color:var(--ash);margin:0 0 6px}
 .contact-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:26px}
 .email{font-family:var(--f-mono);font-size:.9rem;user-select:all;border:1px solid var(--line);padding:.62em 1em;border-radius:2px}
 .credits{margin-top:clamp(56px,10vh,96px);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;max-width:1240px;margin-inline:auto;border-top:1px solid var(--line);padding-top:18px}
+@media (max-width:1000px){
+  .fin-grid{grid-template-columns:1fr;justify-items:center;gap:0}
+  .fin-fig{order:-1;height:min(58vh,460px);margin-bottom:-70px}
+  .fin-fig .slate{display:none}
+  .fin-main{text-align:center;width:100%}
+  .fin-main .term{margin-inline:auto}
+  .fin-main .contact-row{justify-content:center}
+  .finale h2{font-size:clamp(3.4rem,13vw,7rem)}
+}
 .totop{font-family:var(--f-label);text-transform:uppercase;letter-spacing:.22em;font-size:.72rem;color:var(--bone);text-decoration:none}
 
 @media (prefers-reduced-motion:reduce){
@@ -512,6 +526,8 @@ dialog p{color:var(--ash);margin:0 0 6px}
 <!-- REEL 5 -->
 <section class="reel finale wrap" id="contact" aria-labelledby="contactTitle">
   <div class="fin-light" aria-hidden="true"></div>
+  <div class="fin-grid">
+  <div class="fin-main">
   <h2 id="contactTitle" data-split>Let's build<span class="serif">the next scene together</span></h2>
   <div class="term" aria-label="Contact terminal" data-reveal style="--d:.1s">
     <div class="term-bar"><i></i><i></i><i></i></div>
@@ -527,6 +543,12 @@ dialog p{color:var(--ash);margin:0 0 6px}
     <a class="btn ghost" href="resume.pdf" target="_blank" rel="noopener">View resume ↗</a>
   </div>
   <div class="contact-row" id="socials" data-reveal style="--d:.3s"></div>
+  </div>
+  <div class="fin-fig" aria-hidden="true">
+    <div class="fig-in" data-figure="2" data-reveal="rise" style="--d:.1s"></div>
+    <span class="slate">SCENE 05 · TAKE 01</span>
+  </div>
+  </div>
   <div class="credits label" data-reveal="fade">
     <span>Directed &amp; built by <b>Elango S</b> · Bengaluru</span>
     <a class="totop" href="#top">Back to top ↑</a>
@@ -562,6 +584,7 @@ const CONFIG = {
   initial: "S",
   chips: ["Full Stack Engineer", "AI / ML · B.Tech CSE"],
   photo: "assets/elango.webp",
+  photo2: "assets/elango-2.webp",   // second shot, used in the finale
   email: "sivakumarelango10@gmail.com",
   phone: "+91 63798 83404",
   socials: [
@@ -695,6 +718,10 @@ const SILHOUETTE = `<svg viewBox="0 0 200 520" xmlns="http://www.w3.org/2000/svg
 function renderFigures() {
   $$('[data-figure] .fig-in').forEach(el => {
     el.innerHTML = CONFIG.photo ? `<img src="${CONFIG.photo}" alt="" width="1156" height="1300" decoding="async">` : SILHOUETTE;
+  });
+  $$('.fig-in[data-figure="2"]').forEach(el => {
+    const src = CONFIG.photo2 || CONFIG.photo;
+    el.innerHTML = src ? `<img src="${src}" alt="" width="${CONFIG.photo2 ? 940 : 1156}" height="${CONFIG.photo2 ? 1280 : 1300}" loading="lazy" decoding="async">` : SILHOUETTE;
   });
 }
 
@@ -1079,9 +1106,18 @@ function setupFinale() {
     }
     full();
   }, { threshold: .5 }).observe(out);
+  // the figure drifts with scroll and pointer
+  const sec = $('#contact'), ff = $('.fin-fig'), seen = watch(sec); let secTop = 0, secH = 1, fmx = 0;
+  onMeasure(() => { secTop = sec.getBoundingClientRect().top + scrollY; secH = sec.offsetHeight; });
+  onTick((dt, now, sy) => {
+    if (!seen()) return;
+    const p = clamp((sy + M.vh - secTop) / (M.vh + secH), 0, 1);
+    fmx = damp(fmx, fine ? ptr.nx : 0, 3, dt);
+    ff.style.translate = `${(fmx * -18).toFixed(2)}px ${((.5 - p) * 90).toFixed(2)}px`;
+  });
   // a soft light follows the pointer around the finale
   if (!fine || reduced) return;
-  const sec = $('#contact'), L = $('.fin-light'), seen = watch(sec); let x = 0, y = 0, tx = 0, ty = 0, has = false;
+  const L = $('.fin-light'); let x = 0, y = 0, tx = 0, ty = 0, has = false;
   sec.addEventListener('pointermove', e => { const r = sec.getBoundingClientRect(); tx = e.clientX - r.left; ty = e.clientY - r.top; if (!has) { x = tx; y = ty; has = true; } });
   onTick(dt => {
     if (!seen() || !has) return;
