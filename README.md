@@ -2,11 +2,13 @@
 
 A portfolio that plays like a film in five reels. Live at [elanxzz.me](https://elanxzz.me).
 
-1. **Opening** — film-leader countdown, the shutter splits open, and the amber ELANGO S wordmark rises behind me.
+1. **Opening** — a loading counter under LIGHTS → CAMERA → ACTION, a clapperboard snap, then a spotlight sweeps the dark, finds me and irises open on the amber ELANGO S wordmark.
 2. **Stack** — my tech stack as a 3D ring orbiting around me. Drag it to spin it.
 3. **Time machine** — a clock whose hand follows the cursor from 2007 in Erode to the 2029 vision.
 4. **Work** — 15 projects on screens that surround me. Drag, use the arrows, or open any screen.
-5. **Finale** — a terminal that types out who I am and how to reach me.
+5. **Finale** — a terminal that types out who I am and how to reach me, plus a one-click resume download.
+
+Between reels, film strips scroll my stack and projects and speed up with your scroll. Headings rise word by word, buttons roll their labels, and a reel index on the right jumps between scenes.
 
 Plain HTML, CSS and JavaScript. No framework and no build step.
 
@@ -52,4 +54,5 @@ It also works on GitHub Pages or Netlify as-is, since it is a static site.
 - Smooth scrolling with [Lenis](https://github.com/darkroomengineering/lenis); every animation runs on one shared frame clock and pauses when off-screen.
 - Real 3D with CSS transforms for the stack ring and the project room.
 - Film grain, embers and the distressed letter texture are generated in the browser.
+- The full intro plays once per visit; reloading in the same tab gets a short spotlight version.
 - Respects `prefers-reduced-motion` with a calm static version.
