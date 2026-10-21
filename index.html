@@ -245,18 +245,18 @@ section.reel{position:relative;padding-block:clamp(88px,14vh,160px)}
 .reel-head p{max-width:56ch;color:var(--ash);margin:14px 0 0}
 
 /* ---------- reel 2: stack ---------- */
-.universe-stage{position:relative;height:clamp(420px,62vh,620px);perspective:1100px;overflow:hidden;touch-action:pan-y;cursor:grab}
-.universe-stage::before{content:"";position:absolute;left:50%;width:min(760px,96vw);aspect-ratio:3/1;bottom:6%;border-radius:50%;border:1px solid rgba(255,154,31,.35);box-shadow:0 0 60px rgba(255,154,31,.12) inset,0 0 40px rgba(255,154,31,.08);transform:translateX(-50%) rotateX(74deg)}
+.universe-stage{position:relative;height:clamp(460px,68vh,660px);perspective:1100px;overflow:hidden;touch-action:pan-y;cursor:grab}
+.universe-stage::before{content:"";position:absolute;left:50%;top:var(--ry,72%);width:var(--rw,min(760px,96vw));aspect-ratio:1;border-radius:50%;border:1px solid rgba(255,154,31,.35);box-shadow:0 0 60px rgba(255,154,31,.12) inset,0 0 40px rgba(255,154,31,.08);transform:translate(-50%,-50%) translateY(var(--rd,40px)) rotateX(84deg)}
 .scene{position:absolute;inset:0;transform-style:preserve-3d}
-.ring{position:absolute;left:50%;top:44%;width:0;height:0;transform-style:preserve-3d;will-change:transform}
-.tool{--tw:148px;position:absolute;left:0;top:0;width:var(--tw);height:calc(var(--tw)*.62);margin:calc(var(--tw)*-.31) 0 0 calc(var(--tw)*-.5);border:1px solid rgba(255,154,31,.38);background:linear-gradient(160deg,rgba(30,22,14,.94),rgba(10,8,6,.94));border-radius:6px;display:flex;flex-direction:column;justify-content:space-between;padding:10px 12px;backface-visibility:hidden;box-shadow:0 0 24px rgba(255,140,30,.12)}
-.tool .mono{font-family:var(--f-display);font-size:1.7rem;line-height:1;color:var(--amber)}
-.tool .nm{font-family:var(--f-label);text-transform:uppercase;letter-spacing:.12em;font-size:.68rem}
-.tool .kind{position:absolute;right:10px;top:10px;font-family:var(--f-mono);font-size:.56rem;color:var(--ash)}
-.figure-sm{position:absolute;left:50%;bottom:0;height:70%;transform:translate3d(-50%,0,0);pointer-events:none}
+.ring{--tw:148px;position:absolute;left:50%;top:70%;width:0;height:0;transform-style:preserve-3d;will-change:transform}
+.tool{position:absolute;left:0;top:0;width:var(--tw);height:calc(var(--tw)*.62);margin:calc(var(--tw)*-.31) 0 0 calc(var(--tw)*-.5);border:1px solid rgba(255,154,31,.38);background:linear-gradient(160deg,#1e160e,#0a0806);border-radius:6px;display:flex;flex-direction:column;justify-content:space-between;padding:10px 12px;backface-visibility:hidden;box-shadow:0 0 24px rgba(255,140,30,.12)}
+.tool .mono{font-family:var(--f-display);font-size:calc(var(--tw)*.18);line-height:1;color:var(--amber)}
+.tool .nm{font-family:var(--f-label);text-transform:uppercase;letter-spacing:.12em;font-size:max(8.5px,calc(var(--tw)*.074));white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tool .kind{position:absolute;right:10px;top:10px;font-family:var(--f-mono);font-size:max(8px,calc(var(--tw)*.06));color:var(--ash)}
+.figure-sm{position:absolute;left:50%;bottom:0;height:88%;transform:translate3d(-50%,0,0);pointer-events:none}
 .stack-list{max-width:1240px;margin:28px auto 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center}
 .stack-list li{list-style:none;font-family:var(--f-label);text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;color:var(--bone)}
-@media (max-width:620px){.ring{top:24%}.figure-sm{height:60%}.tool{--tw:110px}.tool .mono{font-size:1.25rem}.tool .nm{font-size:.58rem}}
+@media (max-width:620px){.figure-sm{height:72%}}
 
 /* ---------- reel 3: time machine ---------- */
 .chrono{background:radial-gradient(ellipse 60% 50% at 30% 30%,rgba(196,66,15,.14),transparent 70%),var(--ink)}
@@ -835,23 +835,46 @@ function setupStack() {
     const li = document.createElement('li'); li.textContent = s.n; list.append(li);
   });
   let R = 400, asm = cinematic ? 0 : 1;               // asm: cards fly out from the centre on first view
+  const TILT = -3, TILT_RANGE = 6;                    // small tilt, so front cards never swing up into the face
   const place = () => {
     const r = R * (asm >= 1 ? 1 : .08 + .92 * easeOut(asm));
     [...ring.children].forEach((el, i) => el.style.transform = `rotateY(${(i * 360 / n).toFixed(2)}deg) translateZ(${r.toFixed(1)}px)`);
   };
-  onMeasure(() => { const w = innerWidth; R = w < 620 ? Math.min(w * .5, 210) : Math.min(w * .38, 430); place(); });
-  let spin = 0, vel = cinematic ? 320 : 10, tVel = 10, tilt = -8, tTilt = -8, drag = null;
+  const fig = $('.figure-sm');
+  const layoutRing = () => {
+    // 1. size: the circumference must hold every card plus a gap, so the radius follows the card count
+    const tw = clamp(stage.clientWidth * .13, 110, 148), gap = tw * .14;
+    R = n * (tw + gap) / (2 * Math.PI);
+    const P = Math.max(1100, R * 3);                   // perspective grows with the ring, front cards stay ~1.5x
+    stage.style.perspective = `${P.toFixed(0)}px`;
+    ring.style.setProperty('--tw', `${tw.toFixed(1)}px`);
+    // 2. height: a belt below the chin. The front card is the closest, so it is the one that must clear the face
+    //    tilt only lowers the visible front cards (by R*sin(tilt)), so the face is checked at zero tilt
+    //    and the floor of the stage at the largest tilt the pointer can set
+    const sh = stage.clientHeight, fh = fig.offsetHeight, chin = (sh - fh) + fh * .4;
+    const s = P / (P - R), half = tw * .31 * s;
+    const drop = R * Math.sin((Math.abs(TILT) + TILT_RANGE / 2) * Math.PI / 180) * s;
+    const y = Math.max(chin + 14 + half, Math.min(sh * .55, sh - 6 - half - drop));
+    ring.style.top = `${y.toFixed(1)}px`;
+    // 3. the glowing floor is the ring's own orbit
+    stage.style.setProperty('--ry', `${y.toFixed(1)}px`);
+    stage.style.setProperty('--rw', `${(2 * R * 1.04).toFixed(0)}px`);
+    stage.style.setProperty('--rd', `${(half * .95).toFixed(1)}px`);
+    place();
+  };
+  onMeasure(layoutRing);
+  let spin = 0, vel = cinematic ? 320 : 10, tVel = 10, tilt = TILT, tTilt = TILT, drag = null;
   stage.addEventListener('pointerdown', e => { drag = { x: e.clientX, t: performance.now() }; });
   stage.addEventListener('pointermove', e => {
     if (drag) { const now = performance.now(), dx = e.clientX - drag.x; spin += dx * .35; vel = dx * .35 / Math.max(.008, (now - drag.t) / 1000); drag.x = e.clientX; drag.t = now; return; }
     if (e.pointerType === 'touch') return;
     const b = stage.getBoundingClientRect();
     tVel = 10 + ((e.clientX - b.left) / b.width - .5) * 120;
-    tTilt = -8 - ((e.clientY - b.top) / b.height - .5) * 14;
+    tTilt = TILT - ((e.clientY - b.top) / b.height - .5) * TILT_RANGE;
   });
   const release = () => { if (!drag) return; drag = null; vel = clamp(vel, -400, 400); };
   addEventListener('pointerup', release); addEventListener('pointercancel', release);
-  stage.addEventListener('pointerleave', () => { tVel = 10; tTilt = -8; });
+  stage.addEventListener('pointerleave', () => { tVel = 10; tTilt = TILT; });
   onTick(dt => {
     if (!seen()) return;
     if (asm < 1) { if (asm === 0 && !entered(stage)) return; asm = Math.min(1, asm + dt / 1.7); place(); }
@@ -859,7 +882,7 @@ function setupStack() {
     tilt = damp(tilt, tTilt, 4, dt);
     ring.style.transform = `rotateX(${tilt.toFixed(2)}deg) rotateY(${spin.toFixed(2)}deg)`;
   });
-  ring.style.transform = 'rotateX(-8deg)';
+  ring.style.transform = `rotateX(${TILT}deg)`;
 }
 
 /* ---------- reel 3: time machine ---------- */
