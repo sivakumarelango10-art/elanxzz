@@ -105,37 +105,53 @@ a:hover > .t > span,button:hover > .t > span{transform:translate3d(0,-100%,0)}
 .reels a:hover{border-color:var(--bone);color:var(--bone)}
 @media (max-width:1100px){.reels{display:none}}
 
-/* ---------- intro: loader, clapper, spotlight iris ---------- */
+/* ---------- intro: build log, neural net, face detection ---------- */
 #leader{position:fixed;inset:0;z-index:80}
 .iris{position:absolute;inset:0;background:var(--ink);--x:50%;--y:50%;--r:0px;-webkit-mask-image:radial-gradient(circle at var(--x) var(--y),transparent calc(var(--r) * .55),#000 var(--r));mask-image:radial-gradient(circle at var(--x) var(--y),transparent calc(var(--r) * .55),#000 var(--r))}
-.ld{position:absolute;inset:0;z-index:2;display:grid;place-items:center;transition:opacity .5s ease}
+.ld{position:absolute;inset:0;z-index:2;display:grid;place-items:center;transition:opacity .38s ease}
 #leader.spot .ld{opacity:0}
 .ld-corner{position:absolute;font-family:var(--f-label);text-transform:uppercase;letter-spacing:.24em;font-size:.66rem;color:var(--ash);line-height:1.8;animation:fade .8s ease .1s backwards}
 .ld-corner b{color:var(--amber);font-weight:500}
 .ld-corner.tl{top:calc(22px + env(safe-area-inset-top,0px));left:max(22px,env(safe-area-inset-left,0px))}
 .ld-corner.tr{top:calc(22px + env(safe-area-inset-top,0px));right:max(22px,env(safe-area-inset-right,0px));text-align:right}
-.ld-corner.bl{bottom:calc(34px + env(safe-area-inset-bottom,0px));left:max(22px,env(safe-area-inset-left,0px))}
 .ld-count{position:absolute;right:max(22px,env(safe-area-inset-right,0px));bottom:calc(26px + env(safe-area-inset-bottom,0px));font-family:var(--f-display);font-size:clamp(3.2rem,9vw,7.5rem);line-height:.8;font-variant-numeric:tabular-nums;color:var(--bone)}
 .ld-count small{font-size:.32em;color:var(--amber);vertical-align:top;margin-left:.1em}
 .ld-bar{position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--line)}
 .ld-bar i{display:block;height:100%;background:var(--amber);box-shadow:0 0 14px rgba(255,154,31,.7);transform-origin:0 50%;transform:scaleX(0);will-change:transform}
 .ld-stage{display:grid;justify-items:center;gap:clamp(14px,2.4vw,26px);width:100%}
-.clapper{position:relative;width:min(56vw,460px);height:clamp(40px,6vw,58px)}
-.clapper i{position:absolute;left:0;right:0;height:46%;border:2px solid var(--bone);border-radius:3px;background:repeating-linear-gradient(-55deg,var(--bone) 0 16px,var(--ink) 16px 32px)}
-.clapper .base{bottom:0}
-.clapper .hinge{top:0;transform-origin:2px 100%;transform:rotate(-17deg);transition:transform .5s var(--ease-out)}
-#leader.lift .clapper .hinge{transform:rotate(-24deg)}
-#leader.clap .clapper .hinge{transform:rotate(0deg);transition:transform .16s cubic-bezier(.7,0,1,.6)}
 .ld-words{position:relative;width:100%;height:1.02em;overflow:hidden;font-family:var(--f-display);font-size:clamp(4rem,15vw,12.5rem);line-height:1.02;text-transform:uppercase;text-align:center}
 .ld-words span{position:absolute;left:0;right:0;top:0;transform:translate3d(0,105%,0);transition:transform .62s var(--ease-out);will-change:transform}
 .ld-words span.now{transform:translate3d(0,0,0)}
 .ld-words span.gone{transform:translate3d(0,-105%,0)}
 .ld-words span.act{color:var(--amber);text-shadow:0 0 50px rgba(255,154,31,.45)}
-#leader.clap .ld-words span.act{animation:hit .5s var(--ease-out)}
-@keyframes hit{0%{transform:scale(1.09)}100%{transform:scale(1)}}
 .flash{position:absolute;inset:0;z-index:3;background:radial-gradient(circle at 50% 50%,rgba(255,196,120,.42),rgba(255,154,31,.12) 55%,transparent 80%);opacity:0;pointer-events:none}
-#leader.clap .flash{animation:flash .6s ease-out}
+.ld::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(239,230,216,.08) 1px,transparent 1.2px);background-size:28px 28px;-webkit-mask-image:radial-gradient(ellipse 60% 55% at 50% 50%,#000,transparent);mask-image:radial-gradient(ellipse 60% 55% at 50% 50%,#000,transparent);pointer-events:none}
+.ld-words span.act{color:var(--amber);text-shadow:0 0 50px rgba(255,154,31,.45)}
+.nn{display:block;width:min(64vw,520px);aspect-ratio:3.3/1;height:auto}
+@media (max-width:620px){.nn{width:80vw}}
+.ld-log{position:absolute;left:max(22px,env(safe-area-inset-left,0px));bottom:calc(30px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:2px;max-width:min(46ch,calc(100% - 210px));font-family:var(--f-mono);font-size:.68rem;line-height:1.65;color:var(--ash)}
+.ld-log div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.6;animation:logIn .38s var(--ease-out)}
+.ld-log div:last-child{opacity:1;color:var(--bone)}
+.ld-log b{color:var(--amber);font-weight:400}
+.ld-log .live{color:var(--amber)!important}
+@keyframes logIn{from{opacity:0;transform:translate3d(0,9px,0)}}
+@media (max-width:620px){.ld-log{max-width:calc(100% - 170px);font-size:.6rem}}
+#leader.deploy .ld-words span.act{animation:hit .5s var(--ease-out)}
+@keyframes hit{0%{transform:scale(1.09)}100%{transform:scale(1)}}
+#leader.deploy .flash{animation:flash .6s ease-out}
 @keyframes flash{0%{opacity:1}100%{opacity:0}}
+.det{position:absolute;left:0;top:0;z-index:3;width:0;height:0;opacity:0;pointer-events:none;border:1px solid rgba(255,154,31,.6);box-shadow:0 0 0 1px rgba(7,6,5,.35),inset 0 0 0 1px rgba(7,6,5,.35);will-change:transform,opacity}
+.det i{position:absolute;width:20px;height:20px;border:0 solid var(--amber);filter:drop-shadow(0 0 4px rgba(255,154,31,.7))}
+.det i:nth-child(1){left:-3px;top:-3px;border-left-width:3px;border-top-width:3px}
+.det i:nth-child(2){right:-3px;top:-3px;border-right-width:3px;border-top-width:3px}
+.det i:nth-child(3){left:-3px;bottom:-3px;border-left-width:3px;border-bottom-width:3px}
+.det i:nth-child(4){right:-3px;bottom:-3px;border-right-width:3px;border-bottom-width:3px}
+.det b{position:absolute;left:-3px;bottom:calc(100% + 6px);background:var(--amber);color:var(--ink);font:500 .64rem/1 var(--f-mono);letter-spacing:.03em;padding:5px 7px;white-space:nowrap}
+.det u{position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,154,31,.9),transparent);text-decoration:none;animation:scan 1.1s ease-in-out infinite}
+@keyframes scan{0%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,var(--h,100px),0)}100%{transform:translate3d(0,0,0)}}
+.det.lock u{display:none}
+.det.lock{animation:lock .55s var(--ease-out)}
+@keyframes lock{0%{box-shadow:0 0 0 0 rgba(255,154,31,.65)}100%{box-shadow:0 0 0 16px rgba(255,154,31,0)}}
 #skip{position:absolute;z-index:4;top:calc(18px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);background:none;border:1px solid var(--line);padding:.55em 1.1em;border-radius:2px;cursor:pointer;font-family:var(--f-label);letter-spacing:.2em;text-transform:uppercase;font-size:.66rem;color:var(--ash);transition:color .3s,border-color .3s,opacity .3s}
 #skip:hover{color:var(--bone);border-color:var(--amber)}
 #leader.spot #skip{opacity:0;pointer-events:none}
@@ -219,7 +235,7 @@ a:hover > .t > span,button:hover > .t > span{transform:translate3d(0,-100%,0)}
 .play .rails,.play .dots,.play .hero-foot,.play .hero-cv{animation:fade 1.1s ease 1.7s backwards}
 .play .top{animation:drop 1s var(--ease-out) 1.6s backwards}
 @keyframes rise{from{opacity:0;transform:translate3d(0,24%,0) scaleY(1.12);filter:blur(12px)}}
-@keyframes emerge{from{opacity:0;transform:translateX(-50%) translate3d(0,9%,0);filter:brightness(0)}}
+@keyframes emerge{from{opacity:0;filter:brightness(0)}}
 @keyframes wipe{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
 @keyframes fade{from{opacity:0}}
 @keyframes drop{from{opacity:0;transform:translate3d(0,-100%,0)}}
@@ -390,15 +406,16 @@ dialog p{color:var(--ash);margin:0 0 6px}
   <div class="iris"></div>
   <div class="ld">
     <div class="ld-corner tl"><b>Elango S</b><br>Portfolio</div>
-    <div class="ld-corner tr">Reel 2026<br>Five reels</div>
-    <div class="ld-corner bl">Erode ➔ Bengaluru<br>12.97° N · 77.59° E</div>
+    <div class="ld-corner tr">B.Tech CSE · AI &amp; ML<br>Yenepoya University</div>
     <div class="ld-stage">
-      <div class="clapper" aria-hidden="true"><i class="hinge"></i><i class="base"></i></div>
-      <div class="ld-words" aria-hidden="true"><span>Lights</span><span>Camera</span><span class="act">Action</span></div>
+      <canvas class="nn" id="nn" aria-hidden="true"></canvas>
+      <div class="ld-words" aria-hidden="true"><span>Code</span><span>Train</span><span class="act">Deploy</span></div>
     </div>
+    <div class="ld-log" id="ldLog" aria-hidden="true"></div>
     <div class="ld-count"><span id="ldCount">000</span><small>%</small></div>
     <div class="ld-bar"><i id="ldBar"></i></div>
   </div>
+  <div class="det" id="det" aria-hidden="true"><i></i><i></i><i></i><i></i><u></u><b id="detLab">person · 0.00</b></div>
   <div class="flash"></div>
   <button id="skip" type="button">Skip intro</button>
 </div>
@@ -1271,7 +1288,54 @@ function magnetize(list) {
   });
 }
 
-/* ---------- intro: lights, camera, action, then the spotlight finds you ---------- */
+/* ---------- intro: a small neural net fires while the site builds ---------- */
+function neuralNet(cv) {
+  const x = cv.getContext('2d'), d = Math.min(devicePixelRatio || 1, 2);
+  const W = cv.clientWidth, H = cv.clientHeight; cv.width = W * d; cv.height = H * d; x.setTransform(d, 0, 0, d, 0, 0);
+  const layers = [3, 5, 6, 5, 2], L = layers.length, maxN = Math.max(...layers);
+  const r = clamp(H / 22, 2.4, 5), padX = r * 3, gapY = Math.min((H - r * 4) / (maxN - 1), 30);
+  const nodes = layers.map((n, li) => Array.from({ length: n }, (_, k) => ({ x: padX + (W - padX * 2) * li / (L - 1), y: H / 2 + (k - (n - 1) / 2) * gapY, a: 0, li })));
+  const edges = [];
+  for (let li = 0; li < L - 1; li++) for (const a of nodes[li]) for (const b of nodes[li + 1]) edges.push({ a, b, li, g: 0 });
+  const out = li => edges.filter(e => e.li === li);
+  const byLayer = Array.from({ length: L - 1 }, (_, li) => out(li));
+  const pulses = []; let acc = 0, reach = 0;
+  const spawn = (li, from) => { const pool = from ? byLayer[li].filter(e => e.a === from) : byLayer[li]; const e = pool[(Math.random() * pool.length) | 0]; if (e) pulses.push({ e, t: 0, v: 2 + Math.random() * 1.6 }); };
+  return {
+    draw(dt, p) {
+      reach = p * (L - 1);
+      acc += dt * (6 + 26 * p);
+      while (acc > 1) { acc--; spawn(0); }
+      for (let i = pulses.length - 1; i >= 0; i--) {
+        const q = pulses[i]; q.t += q.v * dt;
+        if (q.t >= 1) {
+          pulses.splice(i, 1); q.e.b.a = 1; q.e.g = 1;
+          const nl = q.e.li + 1;
+          if (nl < L - 1 && nl < reach + .35) { spawn(nl, q.e.b); if (Math.random() < .45 * p) spawn(nl, q.e.b); }
+        }
+      }
+      x.clearRect(0, 0, W, H);
+      x.lineWidth = 1;
+      for (const e of edges) {
+        x.strokeStyle = `rgba(239,230,216,${.07 + e.g * .05})`; x.beginPath(); x.moveTo(e.a.x, e.a.y); x.lineTo(e.b.x, e.b.y); x.stroke();
+        if (e.g > .02) { x.strokeStyle = `rgba(255,154,31,${(e.g * .55).toFixed(3)})`; x.stroke(); e.g *= Math.exp(-2.6 * dt); }
+      }
+      for (const q of pulses) {
+        const px = q.e.a.x + (q.e.b.x - q.e.a.x) * q.t, py = q.e.a.y + (q.e.b.y - q.e.a.y) * q.t;
+        x.fillStyle = 'rgba(255,154,31,.22)'; x.beginPath(); x.arc(px, py, r * 1.6, 0, 6.283); x.fill();
+        x.fillStyle = '#ffc070'; x.beginPath(); x.arc(px, py, r * .6, 0, 6.283); x.fill();
+      }
+      for (const L2 of nodes) for (const n of L2) {
+        x.fillStyle = '#070605'; x.beginPath(); x.arc(n.x, n.y, r, 0, 6.283); x.fill();
+        if (n.a > .02) { x.fillStyle = `rgba(255,154,31,${n.a.toFixed(3)})`; x.fill(); n.a *= Math.exp(-2.2 * dt); }
+        x.strokeStyle = n.li <= reach + .01 ? 'rgba(255,154,31,.8)' : 'rgba(239,230,216,.4)'; x.lineWidth = 1.2; x.stroke(); x.lineWidth = 1;
+      }
+    },
+    fire() { nodes.flat().forEach(n => n.a = 1); edges.forEach(e => e.g = 1); }
+  };
+}
+
+/* ---------- intro: code, train, deploy, then face detection locks onto you ---------- */
 async function intro() {
   const L = $('#leader'), html = document.documentElement;
   if (!cinematic || location.hash) {
@@ -1283,7 +1347,7 @@ async function intro() {
   let returning = false;
   try { returning = sessionStorage.getItem('es-intro') === '1'; sessionStorage.setItem('es-intro', '1'); } catch {}
   scrollTo(0, 0); html.classList.add('locked'); lenis?.stop();
-  const iris = $('.iris', L), words = $$('.ld-words span', L), count = $('#ldCount'), bar = $('#ldBar');
+  const iris = $('.iris', L), words = $$('.ld-words span', L), count = $('#ldCount'), bar = $('#ldBar'), log = $('#ldLog'), det = $('#det'), detLab = $('#detLab');
   let skip = false;
   $('#skip').onclick = () => { skip = true; };
   const setIris = (x, y, r) => { iris.style.setProperty('--x', x.toFixed(2) + '%'); iris.style.setProperty('--y', y.toFixed(2) + '%'); iris.style.setProperty('--r', r.toFixed(1) + 'px'); };
@@ -1292,6 +1356,11 @@ async function intro() {
     const f = t => { const p = clamp((t - t0) / ms, 0, 1); fn(ease(p)); if (p < 1) requestAnimationFrame(f); else res(); };
     requestAnimationFrame(f);
   });
+  const addLog = (txt, cls) => {
+    const d = document.createElement('div');
+    d.innerHTML = txt.replace(/^(\$|✓|›)/, '<b>$1</b>'); if (cls) d.className = cls;
+    log.append(d); while (log.children.length > 4) log.firstElementChild.remove();
+  };
   const img = $('.hero .fig-in img');
   const ready = Promise.all([
     Promise.race([document.fonts ? document.fonts.load('400 1em Anton') : 0, sleep(2600)]),
@@ -1301,40 +1370,76 @@ async function intro() {
 
   if (!returning) {
     await Promise.race([document.fonts ? document.fonts.load('400 1em Anton') : 0, sleep(650)]);
-    const DUR = 2300, t0 = performance.now();
+    const net = neuralNet($('#nn'));
+    const LOG = [
+      [0, '$ npm run build'],
+      [.12, '✓ stack: react · next · node · mongo'],
+      [.26, `✓ compiled ${CONFIG.projects.length} projects`],
+      [.4, '› train · epoch 1/3 · loss 0.412'],
+      [.54, '› train · epoch 2/3 · loss 0.108'],
+      [.68, '› train · epoch 3/3 · acc 99.2%'],
+      [.82, '✓ all checks passed'],
+      [.93, '› deploy → elanxzz.me']
+    ];
+    const DUR = 2500, t0 = performance.now();
     await new Promise(res => {
-      let wi = -1, last = -1;
+      let wi = -1, last = -1, li = 0, prev = t0;
       const f = t => {
         if (skip) return res();
-        const e = t - t0;
+        const e = t - t0, dt = Math.min(.05, (t - prev) / 1000); prev = t;
         let p = clamp(e / DUR, 0, 1); if (!assets) p = Math.min(p, .9);
         const v = Math.round(easeOut(p) * 100);
         if (v !== last) { last = v; count.textContent = String(v).padStart(3, '0'); bar.style.transform = `scaleX(${(v / 100).toFixed(3)})`; }
-        const idx = e < 720 ? 0 : e < 1450 ? 1 : 2;
-        if (idx !== wi) { if (wi >= 0) { words[wi].classList.remove('now'); words[wi].classList.add('gone'); } words[idx].classList.add('now'); wi = idx; if (idx === 2) L.classList.add('lift'); }
+        while (li < LOG.length && v / 100 >= LOG[li][0]) addLog(LOG[li++][1]);
+        const idx = e < 800 ? 0 : e < 1600 ? 1 : 2;
+        if (idx !== wi) { if (wi >= 0) { words[wi].classList.remove('now'); words[wi].classList.add('gone'); } words[idx].classList.add('now'); wi = idx; }
+        net.draw(dt, easeOut(p));
         if (v >= 100 && e >= DUR) return res();
         requestAnimationFrame(f);
       };
       requestAnimationFrame(f);
     });
-    if (!skip) { L.classList.add('clap'); await sleep(420); }
+    if (!skip) {
+      L.classList.add('deploy'); addLog('✓ live', 'live'); net.fire();
+      await new Promise(res => { const end = performance.now() + 520; let prev = performance.now(); const f = t => { net.draw(Math.min(.05, (t - prev) / 1000), 1); prev = t; if (t < end && !skip) requestAnimationFrame(f); else res(); }; requestAnimationFrame(f); });
+    }
   } else {
     await Promise.race([ready, sleep(1200)]);
   }
 
-  // the spotlight: sweeps in from the dark, finds the face, then the iris opens
+  // face detection: a box tracks across the dark, locks onto the face, then the view opens
+  const ir = (img || $('.hero .figure')).getBoundingClientRect();     // measured before .play, layout at rest
+  const F = CONFIG.face || [.355, .06, .675, .395];
+  const box = { x: ir.left + ir.width * F[0], y: ir.top + ir.height * F[1], w: ir.width * (F[2] - F[0]), h: ir.height * (F[3] - F[1]) };
+  const cx = box.x + box.w / 2, cy = box.y + box.h / 2, fx = cx / innerWidth * 100, fy = cy / innerHeight * 100;
+  const small = Math.max(box.w, box.h) * 1.05, maxR = Math.hypot(innerWidth, innerHeight) * 1.25;
+  const setDet = (x, y, w, h) => { det.style.transform = `translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0)`; det.style.width = w.toFixed(1) + 'px'; det.style.height = h.toFixed(1) + 'px'; det.style.setProperty('--h', (h - 1).toFixed(0) + 'px'); };
+  const name = CONFIG.handle || 'elango_s';
   L.classList.add('spot'); document.body.classList.add('play');
-  const fr = $('.hero .figure').getBoundingClientRect();
-  const fx = clamp((fr.left + fr.width / 2) / innerWidth * 100, 20, 80), fy = clamp((fr.top + fr.height * .2) / innerHeight * 100, 25, 70);
-  const small = Math.min(innerWidth, innerHeight) * .2, maxR = Math.hypot(innerWidth, innerHeight) * 1.25;
-  if (!returning && !skip) {
-    await tween(1050, p => {
-      const x = 4 + (fx - 4) * p, y = 72 + (fy - 72) * p - Math.sin(p * Math.PI) * 12;
-      setIris(x, y, small * (.45 + .55 * p));
-    }, easeOut);
-    if (!skip) await sleep(220);
+  if (!skip) {
+    if (!returning) {
+      const sx = innerWidth * .1, sy = innerHeight * .72;
+      await tween(1200, p => {
+        const j = (1 - p) * 16;
+        const x = sx + (cx - sx) * p + Math.sin(p * 31) * j, y = sy + (cy - sy) * p - Math.sin(p * Math.PI) * innerHeight * .1 + Math.cos(p * 23) * j;
+        const k = 1.9 - .9 * p, w = box.w * k, h = box.h * k;
+        setIris(x / innerWidth * 100, y / innerHeight * 100, small * (.55 + .45 * p));
+        setDet(x - w / 2, y - h / 2, w, h); det.style.opacity = Math.min(1, p * 5).toFixed(2);
+        detLab.textContent = `person · ${(.27 + .7 * p).toFixed(2)}`;
+      }, easeOut);
+    } else {
+      setIris(fx, fy, small); setDet(box.x, box.y, box.w, box.h);
+      det.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 250, fill: 'forwards' });
+    }
+    det.style.opacity = 1; setDet(box.x, box.y, box.w, box.h);
+    det.classList.add('lock'); detLab.textContent = `${name} · 99.2%`;
+    await sleep(returning ? 320 : 520);
   } else setIris(fx, fy, small * .6);
-  await tween(skip ? 700 : 950, p => setIris(fx + (50 - fx) * p, fy + (50 - fy) * p, small + (maxR - small) * p), easeIO);
+  const o0 = parseFloat(det.style.opacity) || 0;
+  await tween(skip ? 700 : 950, p => {
+    setIris(fx + (50 - fx) * p, fy + (50 - fy) * p, small + (maxR - small) * p);
+    det.style.opacity = (o0 * clamp(1 - p * 1.8, 0, 1)).toFixed(3);
+  }, easeIO);
   html.classList.remove('locked'); lenis?.start(); L.remove();
 }
 

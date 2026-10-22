@@ -2,7 +2,7 @@
 
 A portfolio that plays like a film in five reels. Live at [elanxzz.me](https://elanxzz.me).
 
-1. **Opening** — a loading counter under LIGHTS → CAMERA → ACTION, a clapperboard snap, then a spotlight sweeps the dark, finds me and irises open on the amber ELANGO S wordmark.
+1. **Opening** — the site "builds" itself: a neural network fires layer by layer under CODE → TRAIN → DEPLOY while a build log streams (`npm run build`, training epochs, deploy). Then a face-detection box tracks across the dark, locks onto me (`elango_s · 99.2%`) and the view opens on the amber ELANGO S wordmark.
 2. **Stack** — my tech stack as a 3D ring orbiting around me. Drag it to spin it.
 3. **Time machine** — a clock whose hand follows the cursor from 2007 in Erode to the 2029 vision.
 4. **Work** — 15 projects on screens that surround me. Drag, use the arrows, or open any screen.
@@ -56,4 +56,5 @@ It also works on GitHub Pages or Netlify as-is, since it is a static site.
 - Real 3D with CSS transforms for the stack ring and the project room.
 - Film grain, embers and the distressed letter texture are generated in the browser.
 - The full intro plays once per visit; reloading in the same tab gets a short spotlight version.
+- The detection box is placed from `CONFIG.face` (the face's position as fractions of the hero photo). Update it if you change the photo.
 - Respects `prefers-reduced-motion` with a calm static version.
