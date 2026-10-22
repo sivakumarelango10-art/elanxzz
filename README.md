@@ -8,9 +8,17 @@ A portfolio that plays like a film in five reels. Live at [elanxzz.me](https://e
 4. **Work** — 15 projects on screens that surround me. Drag, use the arrows, or open any screen.
 5. **Finale** — a terminal that types out who I am, a one-click resume download, and a contact block: contact details, social links and a message form. **Dispatch on WhatsApp** opens the visitor's own WhatsApp with their name, subject, email and message already written to my number; they tap send and it reaches me directly. No server, nothing stored.
 
+Also on the page:
+- **The reel** — a 12-second loop made from my photos (2.5D parallax shots: each photo split into me and the background, with a camera push and amber wipes). It opens from a small window to the whole screen as you scroll. Widescreen on desktop, vertical on phones.
+- **Off the clock** — an amber field where my photos drop onto the headline like prints. Drag them around (or focus one and use the arrow keys); *Tidy up* puts them back.
+- **Rolling figures** — projects, tools in the stack and years writing code count up when they arrive.
+- **The footer monument** — the name returns full width in reversed colours.
+
 Between reels, film strips scroll my stack and projects and speed up with your scroll. Headings rise word by word, buttons roll their labels, and a reel index on the right jumps between scenes.
 
 Plain HTML, CSS and JavaScript. No framework and no build step.
+
+Type: **Archivo**, one family in two widths: Expanded Black for the monument and headings, regular width for everything else. JetBrains Mono only in the terminal and build log.
 
 ## Files
 
@@ -19,6 +27,8 @@ index.html          the whole site: styles, markup and scripts
 assets/elango.webp    hero, stack and project-room photo (background removed, colour graded)
 assets/elango-2.webp  finale photo
 assets/og.jpg       link-preview image for WhatsApp, LinkedIn, X
+assets/gallery/      the five graded photos used for the prints
+assets/reel-*.webm|mp4|webp  the reel (wide and tall) and its poster frames
 resume.pdf          opened by the Resume buttons
 favicon.svg         browser tab icon
 ```
@@ -32,6 +42,7 @@ Everything personal lives in the `CONFIG` object near the top of the `<script>` 
 - `stack` — cards in the ring (`m` is the two-letter monogram)
 - `years` — timeline milestones
 - `projects` — title, stack, description and `links` (add a `Launch live` URL to any project)
+- `gallery` — the prints: image, alt text and caption
 
 To change a photo, replace `assets/elango.webp` (or `assets/elango-2.webp` for the finale) with a transparent image of the same proportions (waist-up works best). To update the resume, replace `resume.pdf`.
 
