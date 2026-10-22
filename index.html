@@ -32,6 +32,7 @@ img{max-width:100%}
   --amber:#ff9a1f;        /* the one light source */
   --ember:#c4420f;        /* deep end of the amber */
   --line:rgba(239,230,216,.14);
+  --bad:#ff7b5c;          /* form errors only */
   --f-display:"Anton","Impact","Arial Narrow Bold",sans-serif;
   --f-label:"Oswald","Arial Narrow",sans-serif;
   --f-serif:"Instrument Serif","Bodoni 72",Georgia,serif;
@@ -379,6 +380,54 @@ dialog p{color:var(--ash);margin:0 0 6px}
 @keyframes blink{50%{opacity:0}}
 .contact-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:26px}
 .email{font-family:var(--f-mono);font-size:.9rem;user-select:all;border:1px solid var(--line);padding:.62em 1em;border-radius:2px}
+.connect{max-width:1240px;margin:clamp(72px,11vh,120px) auto 0;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(16px,2.2vw,26px);text-align:left;align-items:start}
+.c-col{display:grid;gap:clamp(16px,2.2vw,26px);min-width:0}
+.card{position:relative;min-width:0;background:linear-gradient(160deg,rgba(30,22,14,.72),rgba(12,10,8,.82));border:1px solid var(--line);border-radius:16px;padding:clamp(22px,3vw,36px);transition:border-color .5s}
+.card:hover,.card:focus-within{border-color:rgba(255,154,31,.35)}
+.card h3{font-family:var(--f-display);font-weight:400;text-transform:uppercase;font-size:clamp(1.5rem,2.4vw,2rem);line-height:1;letter-spacing:.02em;margin:0 0 24px}
+.card h3 + .note{margin:-14px 0 22px;color:var(--ash);font-size:.92rem;max-width:52ch}
+.det-list{display:grid;gap:20px;margin:0;padding:0;list-style:none}
+.det-list li{display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:14px;align-items:center}
+.ico{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;background:rgba(255,154,31,.08);border:1px solid rgba(255,154,31,.25);color:var(--amber)}
+.ico svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.k{display:block;font-family:var(--f-mono);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ash);margin-bottom:3px}
+.v{font-size:1.02rem;color:var(--bone);text-decoration:none;overflow-wrap:anywhere}
+a.v{transition:color .3s}
+a.v:hover{color:var(--amber)}
+.mini{font-family:var(--f-label);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--line);background:none;color:var(--bone);border-radius:20px;padding:6px 11px;cursor:pointer;text-decoration:none;white-space:nowrap;transition:border-color .3s,color .3s,background-color .3s}
+.mini:hover{border-color:var(--amber);color:var(--amber)}
+.soc{display:flex;flex-wrap:wrap;gap:12px 10px}
+.soc a{display:grid;justify-items:center;gap:9px;width:74px;text-decoration:none}
+.soc a span{width:58px;height:58px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-family:var(--f-display);font-size:1.12rem;letter-spacing:.04em;color:var(--bone);background:rgba(7,6,5,.5);transition:transform .6s var(--ease-out),background-color .35s,border-color .35s,color .35s}
+.soc a:hover span,.soc a:focus-visible span{transform:translate3d(0,-5px,0);background:var(--amber);border-color:var(--amber);color:var(--ink)}
+.soc a small{font-family:var(--f-label);letter-spacing:.14em;text-transform:uppercase;font-size:.58rem;color:var(--ash);text-align:center;line-height:1.3}
+.cform .row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 16px}
+.field{display:grid;gap:8px;margin-bottom:18px;min-width:0}
+.field label{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ash)}
+.field label i{font-style:normal;color:rgba(141,132,117,.6);letter-spacing:.06em;text-transform:none}
+.field input,.field textarea{width:100%;background:rgba(7,6,5,.72);border:1px solid var(--line);border-radius:10px;padding:14px 16px;color:var(--bone);font:inherit;font-size:1rem;line-height:1.4;outline:none;transition:border-color .3s,box-shadow .3s,background-color .3s}
+.field textarea{min-height:150px;resize:vertical;line-height:1.55}
+.field input::placeholder,.field textarea::placeholder{color:rgba(141,132,117,.75)}
+.field input:focus,.field textarea:focus{border-color:var(--amber);background:rgba(18,13,8,.9);box-shadow:0 0 0 3px rgba(255,154,31,.14)}
+.field.bad input,.field.bad textarea{border-color:var(--bad);box-shadow:0 0 0 3px rgba(255,123,92,.12)}
+.err{font-size:.82rem;color:var(--bad)}
+.err:empty{display:none}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{font-family:var(--f-mono);font-size:.66rem;border:1px solid var(--line);background:none;border-radius:20px;padding:5px 10px;color:var(--ash);cursor:pointer;transition:border-color .3s,color .3s,background-color .3s}
+.chips button:hover{border-color:rgba(255,154,31,.6);color:var(--bone)}
+.chips button[aria-pressed="true"]{border-color:var(--amber);background:rgba(255,154,31,.12);color:var(--bone)}
+.count{justify-self:end;font-family:var(--f-mono);font-size:.62rem;color:var(--ash);font-variant-numeric:tabular-nums}
+.form-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 18px;margin-top:4px}
+.form-note{display:flex;align-items:center;gap:10px;font-size:.86rem;color:var(--ash);max-width:40ch}
+.form-note::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 3px rgba(61,220,132,.15)}
+.send{padding:1.05em 1.7em;font-size:.8rem}
+.send.nope{animation:nope .45s ease}
+@keyframes nope{20%{transform:translate3d(-7px,0,0)}40%{transform:translate3d(6px,0,0)}60%{transform:translate3d(-4px,0,0)}80%{transform:translate3d(2px,0,0)}}
+.status{margin-top:16px;padding:12px 14px;border:1px solid rgba(255,154,31,.35);border-radius:10px;background:rgba(255,154,31,.06);font-size:.9rem;color:var(--bone)}
+.status:empty{display:none}
+.status a{color:var(--amber)}
+@media (max-width:900px){.connect{grid-template-columns:1fr}}
+@media (max-width:620px){.cform .row2{grid-template-columns:1fr}.det-list li{grid-template-columns:44px minmax(0,1fr)}.det-list .mini{grid-column:2;justify-self:start}.ico{width:44px;height:44px}.form-foot .send{width:100%;justify-content:center}}
 .credits{margin-top:clamp(56px,10vh,96px);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;max-width:1240px;margin-inline:auto;border-top:1px solid var(--line);padding-top:18px}
 @media (max-width:1000px){
   .fin-grid{grid-template-columns:1fr;justify-items:center;gap:0}
@@ -550,21 +599,76 @@ dialog p{color:var(--ash);margin:0 0 6px}
     <div class="term-bar"><i></i><i></i><i></i></div>
     <pre id="termOut"></pre>
   </div>
-  <div class="contact-row" data-reveal style="--d:.15s">
-    <span class="email" id="emailText"></span>
-    <span class="email" id="phoneText"></span>
-    <button class="btn" id="copyEmail" type="button">Copy email</button>
-  </div>
-  <div class="contact-row" data-reveal style="--d:.25s">
+  <div class="contact-row" data-reveal style="--d:.2s">
+    <a class="btn ghost" href="#connect">Send a message ↓</a>
     <a class="btn" href="resume.pdf" download="Elango_S_Resume.pdf" data-dl>Download resume ↓</a>
     <a class="btn ghost" href="resume.pdf" target="_blank" rel="noopener">View resume ↗</a>
   </div>
-  <div class="contact-row" id="socials" data-reveal style="--d:.3s"></div>
   </div>
   <div class="fin-fig" aria-hidden="true">
     <div class="fig-in" data-figure="2" data-reveal="rise" style="--d:.1s"></div>
     <span class="slate">SCENE 05 · TAKE 01</span>
   </div>
+  </div>
+
+  <div class="connect" id="connect">
+    <div class="c-col">
+      <div class="card" data-reveal>
+        <h3>Contact details</h3>
+        <ul class="det-list">
+          <li>
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></span>
+            <div><span class="k">Email</span><a class="v" id="cEmailLink" href="#"></a></div>
+            <button class="mini" type="button" id="copyEmail">Copy</button>
+          </li>
+          <li>
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 3h3.2l1.6 4.4-2.2 1.5a11.5 11.5 0 0 0 7.5 7.5l1.5-2.2L21 15.8V19a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg></span>
+            <div><span class="k">Phone · WhatsApp</span><a class="v" id="cPhoneLink" href="#"></a></div>
+            <a class="mini" id="waDirect" href="#" target="_blank" rel="noopener">Chat ↗</a>
+          </li>
+          <li>
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+            <div><span class="k">Location</span><span class="v" id="cLoc"></span></div>
+          </li>
+        </ul>
+      </div>
+      <div class="card" data-reveal style="--d:.12s">
+        <h3>Social networks</h3>
+        <div class="soc" id="socials"></div>
+      </div>
+    </div>
+    <form class="card cform" id="cform" novalidate data-reveal style="--d:.08s" aria-labelledby="cformTitle">
+      <h3 id="cformTitle">Send a message</h3>
+      <p class="note">Write it here, then Dispatch opens WhatsApp with everything filled in. Tap send there and it reaches me directly.</p>
+      <div class="row2">
+        <div class="field">
+          <label for="cName">Your name</label>
+          <input id="cName" name="name" type="text" autocomplete="name" placeholder="Your name" maxlength="80" required>
+          <span class="err" id="cNameErr"></span>
+        </div>
+        <div class="field">
+          <label for="cMail">Email address <i>(optional)</i></label>
+          <input id="cMail" name="email" type="email" autocomplete="email" placeholder="you@example.com" maxlength="120">
+          <span class="err" id="cMailErr"></span>
+        </div>
+      </div>
+      <div class="field">
+        <label for="cSubj">Subject</label>
+        <input id="cSubj" name="subject" type="text" placeholder="Project inquiry / Opportunity" maxlength="120">
+        <div class="chips" id="cChips" aria-label="Quick subjects"></div>
+      </div>
+      <div class="field">
+        <label for="cMsg">Message details</label>
+        <textarea id="cMsg" name="message" placeholder="Hi Elango, I would love to collaborate on…" maxlength="1000" required data-lenis-prevent></textarea>
+        <span class="count" id="cCount" aria-hidden="true">0 / 1000</span>
+        <span class="err" id="cMsgErr"></span>
+      </div>
+      <div class="form-foot">
+        <span class="form-note">Goes straight to my WhatsApp. Nothing is stored on this site.</span>
+        <button class="btn send" type="submit" id="cSend">Dispatch on WhatsApp ↗</button>
+      </div>
+      <div class="status" id="cStatus" role="status" aria-live="polite"></div>
+    </form>
   </div>
   <div class="credits label" data-reveal="fade">
     <span>Directed &amp; built by <b>Elango S</b> · Bengaluru</span>
@@ -604,6 +708,8 @@ const CONFIG = {
   photo2: "assets/elango-2.webp",   // second shot, used in the finale
   email: "sivakumarelango10@gmail.com",
   phone: "+91 63798 83404",
+  whatsapp: "916379883404",        // country code + number, digits only: where the contact form sends messages
+  location: "Bengaluru, Karnataka, India",
   socials: [
     { label: "GitHub",   url: "https://github.com/elangoss121-dev" },
     { label: "LinkedIn", url: "https://www.linkedin.com/in/elango-s-a7a8aa367/" },
@@ -1116,15 +1222,8 @@ function setupRoom() {
 
 /* ---------- reel 5 ---------- */
 function setupFinale() {
-  $('#emailText').textContent = CONFIG.email; $('#phoneText').textContent = CONFIG.phone;
-  $('#socials').innerHTML = CONFIG.socials.map(s => `<a class="btn ghost" href="${s.url}" target="_blank" rel="noopener">${s.label} ↗</a>`).join('');
   $('#year').textContent = `© ${new Date().getFullYear()} · elanxzz.me`;
-  $('#copyEmail').addEventListener('click', async e => {
-    const b = e.currentTarget;
-    try { await navigator.clipboard.writeText(CONFIG.email); setLabel(b, 'Copied ✓'); }
-    catch { const r = document.createRange(); r.selectNodeContents($('#emailText')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); setLabel(b, 'Selected, press copy'); }
-    setTimeout(() => setLabel(b, 'Copy email'), 2200);
-  });
+  setupContact();
   const lines = [
     ['p', '$ whoami'], ['', 'elango s · full stack engineer · b.tech cse (ai/ml), yenepoya university'],
     ['p', '$ cat goal.txt'], ['', 'build large-scale products with modern web, cloud and AI, and mentor future developers'],
@@ -1164,6 +1263,66 @@ function setupFinale() {
     const nx = damp(x, tx, 4, dt), ny = damp(y, ty, 4, dt);
     if (Math.abs(nx - x) < .1 && Math.abs(ny - y) < .1) return;
     x = nx; y = ny; L.style.transform = `translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0) translate(-50%,-50%)`;
+  });
+}
+
+/* ---------- contact: details, socials, and a form that hands off to WhatsApp ---------- */
+function setupContact() {
+  const wa = String(CONFIG.whatsapp || CONFIG.phone).replace(/\D/g, '');
+  const waUrl = text => `https://wa.me/${wa}` + (text ? `?text=${encodeURIComponent(text)}` : '');
+  const em = $('#cEmailLink'); em.textContent = CONFIG.email; em.href = `mailto:${CONFIG.email}`;
+  const ph = $('#cPhoneLink'); ph.textContent = CONFIG.phone; ph.href = `tel:+${wa}`;
+  $('#waDirect').href = waUrl(`Hi Elango, I found your portfolio at elanxzz.me.`);
+  $('#cLoc').textContent = CONFIG.location || 'Bengaluru, Karnataka, India';
+  const mono = { GitHub: 'GH', LinkedIn: 'IN', 'GitHub · art': 'GA' };
+  $('#socials').innerHTML = CONFIG.socials.map(s =>
+    `<a href="${s.url}" target="_blank" rel="noopener" aria-label="${s.label} (opens in a new tab)"><span aria-hidden="true">${s.m || mono[s.label] || s.label.slice(0, 2).toUpperCase()}</span><small aria-hidden="true">${s.label}</small></a>`).join('') +
+    `<a href="${waUrl()}" target="_blank" rel="noopener" aria-label="WhatsApp (opens in a new tab)"><span aria-hidden="true">WA</span><small aria-hidden="true">WhatsApp</small></a>` +
+    `<a href="resume.pdf" target="_blank" rel="noopener" aria-label="Resume PDF (opens in a new tab)"><span aria-hidden="true">CV</span><small aria-hidden="true">Resume</small></a>`;
+  $('#copyEmail').addEventListener('click', async e => {
+    const b = e.currentTarget;
+    try { await navigator.clipboard.writeText(CONFIG.email); b.textContent = 'Copied ✓'; }
+    catch { const r = document.createRange(); r.selectNodeContents(em); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Selected'; }
+    setTimeout(() => b.textContent = 'Copy', 2000);
+  });
+
+  const form = $('#cform'), F = { name: $('#cName'), mail: $('#cMail'), subj: $('#cSubj'), msg: $('#cMsg') };
+  const err = { name: $('#cNameErr'), mail: $('#cMailErr'), msg: $('#cMsgErr') };
+  const status = $('#cStatus'), send = $('#cSend'), count = $('#cCount'), chips = $('#cChips');
+  ['Internship', 'Full-time role', 'Freelance project', 'Collaboration', 'Just saying hi'].forEach(s => {
+    const b = document.createElement('button'); b.type = 'button'; b.textContent = s; b.setAttribute('aria-pressed', 'false');
+    b.addEventListener('click', () => { F.subj.value = s; syncChips(); F.msg.focus({ preventScroll: true }); });
+    chips.append(b);
+  });
+  const syncChips = () => [...chips.children].forEach(b => b.setAttribute('aria-pressed', String(b.textContent === F.subj.value.trim())));
+  F.subj.addEventListener('input', syncChips);
+  F.msg.addEventListener('input', () => { count.textContent = `${F.msg.value.length} / 1000`; });
+  // keep an unsent draft in this browser only
+  const KEY = 'es-contact-draft';
+  try { const d = JSON.parse(localStorage.getItem(KEY) || 'null'); if (d) { for (const k in F) if (d[k]) F[k].value = d[k]; count.textContent = `${F.msg.value.length} / 1000`; syncChips(); } } catch {}
+  form.addEventListener('input', () => { try { localStorage.setItem(KEY, JSON.stringify({ name: F.name.value, mail: F.mail.value, subj: F.subj.value, msg: F.msg.value })); } catch {} });
+  const setErr = (k, text) => { err[k].textContent = text; F[k].closest('.field').classList.toggle('bad', !!text); F[k].setAttribute('aria-invalid', text ? 'true' : 'false'); };
+  Object.keys(err).forEach(k => F[k].addEventListener('input', () => { if (err[k].textContent) setErr(k, ''); }));
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const name = F.name.value.trim(), mail = F.mail.value.trim(), subj = F.subj.value.trim(), msg = F.msg.value.trim();
+    setErr('name', name ? '' : 'Add your name so I know who is writing.');
+    setErr('mail', !mail || F.mail.checkValidity() ? '' : 'That email looks incomplete. Fix it or leave it empty.');
+    setErr('msg', msg ? '' : 'Write a message before dispatching.');
+    const first = ['name', 'mail', 'msg'].find(k => err[k].textContent);
+    if (first) {
+      F[first].focus({ preventScroll: true });
+      send.classList.remove('nope'); void send.offsetWidth; send.classList.add('nope');
+      return;
+    }
+    const lines = [`Hi Elango, this is *${name}*.`];
+    if (subj) lines.push(`*Subject:* ${subj}`);
+    if (mail) lines.push(`*Email:* ${mail}`);
+    lines.push('', msg, '', '_Sent from elanxzz.me_');
+    const url = waUrl(lines.join('\n'));
+    const a = document.createElement('a'); a.href = url; a.target = '_blank'; a.rel = 'noopener'; document.body.append(a); a.click(); a.remove();
+    try { localStorage.removeItem(KEY); } catch {}
+    status.innerHTML = `WhatsApp is opening with your message. Tap send there to deliver it. If nothing opened, <a href="${url}" target="_blank" rel="noopener">open WhatsApp here</a>.`;
   });
 }
 

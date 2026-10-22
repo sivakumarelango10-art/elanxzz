@@ -6,7 +6,7 @@ A portfolio that plays like a film in five reels. Live at [elanxzz.me](https://e
 2. **Stack** — my tech stack as a 3D ring orbiting around me. Drag it to spin it.
 3. **Time machine** — a clock whose hand follows the cursor from 2007 in Erode to the 2029 vision.
 4. **Work** — 15 projects on screens that surround me. Drag, use the arrows, or open any screen.
-5. **Finale** — a terminal that types out who I am and how to reach me, plus a one-click resume download.
+5. **Finale** — a terminal that types out who I am, a one-click resume download, and a contact block: contact details, social links and a message form. **Dispatch on WhatsApp** opens the visitor's own WhatsApp with their name, subject, email and message already written to my number; they tap send and it reaches me directly. No server, nothing stored.
 
 Between reels, film strips scroll my stack and projects and speed up with your scroll. Headings rise word by word, buttons roll their labels, and a reel index on the right jumps between scenes.
 
@@ -27,7 +27,8 @@ favicon.svg         browser tab icon
 
 Everything personal lives in the `CONFIG` object near the top of the `<script>` in `index.html`:
 
-- `chips`, `email`, `phone`, `socials`
+- `chips`, `email`, `phone`, `location`, `socials`
+- `whatsapp` — the number the contact form sends to: country code + number, digits only (e.g. `916379883404`)
 - `stack` — cards in the ring (`m` is the two-letter monogram)
 - `years` — timeline milestones
 - `projects` — title, stack, description and `links` (add a `Launch live` URL to any project)
