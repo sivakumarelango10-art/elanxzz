@@ -7,4 +7,9 @@
     <image:image><image:loc>https://www.elanxzz.me/assets/elango.webp</image:loc></image:image>
     <image:image><image:loc>https://www.elanxzz.me/assets/sinc-logo.webp</image:loc></image:image>
   </url>
+  <url>
+    <loc>https://www.elanxzz.me/about</loc>
+    <lastmod>2026-10-27</lastmod>
+    <image:image><image:loc>https://www.elanxzz.me/assets/elango.webp</image:loc></image:image>
+  </url>
 </urlset>

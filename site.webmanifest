@@ -1,0 +1,23 @@
+{
+  "name": "Elango S (Elanxzz)",
+  "short_name": "Elango S",
+  "description": "Elango S, also known as Elanxzz, is the founder of SINC and a Computer Science (AI & ML) student at Yenepoya University, building full-stack and AI projects.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "lang": "en",
+  "background_color": "#070605",
+  "theme_color": "#070605",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
