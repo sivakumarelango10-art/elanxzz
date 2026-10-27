@@ -1,6 +1,6 @@
 # ELANGO S — cinematic portfolio
 
-A portfolio that plays like a film in five reels. Live at [elanxzz.me](https://elanxzz.me).
+Portfolio of **Elango S — Founder of [SINC](https://sincommunity.in) (Society for Innovation, Network & Collaboration), full-stack developer and B.Tech CSE (AI & ML) student at Yenepoya University.** It plays like a film in five reels. Live at [elanxzz.me](https://elanxzz.me).
 
 1. **Opening** — the site "builds" itself: a neural network fires layer by layer under CODE → TRAIN → DEPLOY while a build log streams (`npm run build`, training epochs, deploy). Then a face-detection box tracks across the dark, locks onto me (`elango_s · 99.2%`) and the view opens on the amber ELANGO S wordmark.
 2. **Stack** — my tech stack as a 3D ring orbiting around me. Drag it to spin it.
@@ -9,6 +9,8 @@ A portfolio that plays like a film in five reels. Live at [elanxzz.me](https://e
 5. **Finale** — a terminal that types out who I am, a one-click resume download, and a contact block: contact details, social links and a message form. **Dispatch on WhatsApp** opens the visitor's own WhatsApp with their name, subject, email and message already written to my number; they tap send and it reaches me directly. No server, nothing stored.
 
 Also on the page:
+- **Founder of SINC** — what SINC is (in SINC's own published words), my role, the official logo, and links to sincommunity.in, SINC's Instagram and my founder profile on the SINC site.
+- **Project index** — every project as a plain list under the project room, with live and source links.
 - **The reel** — a 12-second loop made from my photos (2.5D parallax shots: each photo split into me and the background, with a camera push and amber wipes). It opens from a small window to the whole screen as you scroll. Widescreen on desktop, vertical on phones.
 - **Off the clock** — an amber field where my photos drop onto the headline like prints. Drag them around (or focus one and use the arrow keys); *Tidy up* puts them back.
 - **Rolling figures** — projects, tools in the stack and years writing code count up when they arrive.
@@ -45,6 +47,14 @@ Everything personal lives in the `CONFIG` object near the top of the `<script>` 
 - `gallery` — the prints: image, alt text and caption
 
 To change a photo, replace `assets/elango.webp` (or `assets/elango-2.webp` for the finale) with a transparent image of the same proportions (waist-up works best). To update the resume, replace `resume.pdf`.
+
+## SEO and structured data
+
+- `index.html` head: title, description, canonical `https://elanxzz.me/`, robots, Open Graph (profile) and Twitter card, theme colour, favicon and Apple touch icon.
+- One JSON-LD graph: `WebSite`, `ProfilePage`, `Person` (Elango S) and `Organization` (SINC, using the same `@id` as sincommunity.in), linked with `worksFor` / `founder`.
+- `robots.txt` and `sitemap.xml` at the root; `vercel.json` adds security headers and asset caching.
+- Name, roles, stack, contact details, socials and the project list are in the HTML itself, not only rendered by script.
+- Only facts published by me or by SINC are used. Do not add claims, numbers or partnerships that are not published.
 
 ## Run locally
 

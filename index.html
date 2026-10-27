@@ -4,18 +4,31 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#070605">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="Elango S">
 <link rel="canonical" href="https://elanxzz.me/">
-<meta property="og:type" content="website">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Elango S">
+<meta property="og:locale" content="en_IN">
 <meta property="og:url" content="https://elanxzz.me/">
-<meta property="og:title" content="Elango S · Full Stack Engineer">
-<meta property="og:description" content="Full stack engineer and B.Tech CSE (AI / ML) student in Bengaluru. A portfolio in five reels.">
+<meta property="og:title" content="Elango S | Founder of SINC · Full-Stack Developer &amp; AI/ML">
+<meta property="og:description" content="Elango S is the founder of SINC (Society for Innovation, Network &amp; Collaboration), full-stack developer and B.Tech CSE (AI &amp; ML) student at Yenepoya University.">
 <meta property="og:image" content="https://elanxzz.me/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Elango S in front of the ELANGO S wordmark, with the roles Full-Stack Developer and Founder of SINC">
+<meta property="profile:first_name" content="Elango">
+<meta property="profile:last_name" content="S">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Elango S | Founder of SINC · Full-Stack Developer &amp; AI/ML">
+<meta name="twitter:description" content="Elango S is the founder of SINC (Society for Innovation, Network &amp; Collaboration), full-stack developer and B.Tech CSE (AI &amp; ML) student at Yenepoya University.">
 <meta name="twitter:image" content="https://elanxzz.me/assets/og.jpg">
+<meta name="twitter:image:alt" content="Elango S in front of the ELANGO S wordmark, with the roles Full-Stack Developer and Founder of SINC">
 <link rel="preload" as="image" href="assets/elango.webp" type="image/webp">
-<title>Elango S Portfolio</title>
-<meta name="description" content="Elango S, full stack engineer and B.Tech CSE (AI / ML) student in Bengaluru.">
+<title>Elango S | Founder of SINC · Full-Stack Developer &amp; AI/ML</title>
+<meta name="description" content="Elango S is the founder of SINC (Society for Innovation, Network &amp; Collaboration), full-stack developer and B.Tech CSE (AI &amp; ML) student at Yenepoya University.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -219,13 +232,14 @@ a:hover > .t > span,button:hover > .t > span{transform:translate3d(0,-100%,0)}
 .dots.br{bottom:28px;right:max(28px,env(safe-area-inset-right,0px))}
 .hero-shade{position:absolute;inset:0;z-index:6;background:var(--ink);opacity:0;pointer-events:none;will-change:opacity}
 .hero-foot{position:absolute;z-index:7;bottom:22px;left:0;right:0;display:flex;justify-content:center;pointer-events:none}
-.hero-cv{position:absolute;z-index:7;left:max(28px,env(safe-area-inset-left,0px));bottom:28px}
+.hero-cv{position:absolute;z-index:7;left:max(28px,env(safe-area-inset-left,0px));bottom:28px;display:flex;gap:10px;white-space:nowrap}
 .scroll-cue{display:flex;flex-direction:column;align-items:center;gap:8px}
 .scroll-cue::after{content:"";width:1px;height:36px;background:linear-gradient(var(--amber),transparent);animation:drip 2.2s ease-in-out infinite}
 @keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 @media (max-width:620px){
   .rails,.dots,.hero-foot{display:none}
   .hero .hero-cv{left:50%;bottom:22px;transform:translateX(-50%)}
+  .hero-cv .btn{padding:.75em 1em}
   .hero{place-items:start center;padding-top:calc(22svh + env(safe-area-inset-top,0px))}
   .figure{height:min(56%,480px)}
   .chip.a{left:0;bottom:auto;top:calc(100% + 12px)}
@@ -448,6 +462,49 @@ a.v:hover{color:var(--amber)}
 }
 .totop{font-family:var(--f-body);letter-spacing:0;font-size:var(--step-small);color:var(--bone);text-decoration:none}
 
+/* ---------- founder of SINC ---------- */
+.sinc{position:relative;padding-block:clamp(96px,15vh,170px);background:radial-gradient(ellipse 55% 60% at 22% 50%,rgba(40,90,220,.12),transparent 70%),radial-gradient(ellipse 50% 60% at 80% 40%,rgba(196,66,15,.14),transparent 70%),var(--ink)}
+.sinc-grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,96px);align-items:center}
+.sinc-mark{position:relative;margin:0;display:grid;justify-items:center;gap:22px}
+.sinc-mark img{position:relative;z-index:1;width:min(78%,360px);height:auto;filter:drop-shadow(0 18px 60px rgba(40,100,255,.28))}
+.sinc-ring{position:absolute;z-index:0;top:50%;left:50%;width:min(98%,460px);aspect-ratio:1;translate:-50% -56%;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 62%,rgba(255,154,31,.9) 70%,transparent 78% 100%);-webkit-mask:radial-gradient(circle,transparent 66%,#000 67%,#000 68.5%,transparent 69.5%);mask:radial-gradient(circle,transparent 66%,#000 67%,#000 68.5%,transparent 69.5%);animation:spin 9s linear infinite}
+.sinc-ring::after{content:"";position:absolute;inset:0;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(239,230,216,.12)}
+@keyframes spin{to{rotate:360deg}}
+.sinc-mark figcaption{font-weight:600;font-size:var(--step-body);color:var(--bone);display:flex;gap:10px;align-items:center}
+.sinc-mark figcaption span{color:var(--amber)}
+.sinc-copy{min-width:0}
+.sinc-copy h2{font-size:var(--step-head)}
+.sinc-full{margin:14px 0 0;font-size:var(--step-lead);font-weight:500;color:var(--amber)}
+.sinc-lead{margin:22px 0 0;max-width:62ch;font-size:var(--step-body);color:var(--bone)}
+.sinc-quote{margin:28px 0 0;padding:0 0 0 20px;border-left:3px solid var(--amber)}
+.sinc-quote p{margin:0;font-size:var(--step-lead);font-weight:600;line-height:1.3;color:var(--bone);max-width:30ch}
+.sinc-quote footer{margin-top:6px;font-size:var(--step-small);color:var(--ash)}
+.sinc-facts{margin:28px 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 28px}
+.sinc-facts div{min-width:0}
+.sinc-facts dt{font-size:var(--step-small);color:var(--ash)}
+.sinc-facts dd{margin:2px 0 0;font-weight:500;color:var(--bone)}
+.sinc-cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:10px}
+.sinc-note{margin:22px 0 0;font-size:var(--step-small);color:var(--ash);max-width:62ch}
+@media (max-width:900px){.sinc-grid{grid-template-columns:1fr}.sinc-mark img{width:min(58%,260px)}.sinc-ring{width:min(76%,340px)}}
+@media (max-width:520px){.sinc-facts{grid-template-columns:1fr}}
+
+/* ---------- project index (static, crawlable) ---------- */
+.pindex{max-width:1240px;margin:clamp(28px,5vh,48px) auto 0}
+.pindex summary{cursor:pointer;display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:var(--step-body);color:var(--bone);padding:10px 0;list-style:none}
+.pindex summary::-webkit-details-marker{display:none}
+.pindex summary::after{content:"+";display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--amber);color:var(--ink);font-weight:700;transition:rotate .4s var(--ease-out)}
+.pindex[open] summary::after{rotate:45deg}
+.plist{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:4px}
+.plist li{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) auto;gap:6px 22px;align-items:baseline;padding:16px 18px;border-radius:10px;background:rgba(239,230,216,.03);transition:background-color .3s}
+.plist li:hover{background:rgba(255,154,31,.08)}
+.plist h3{margin:0;font-family:var(--f-display);font-stretch:var(--wide);font-weight:800;text-transform:uppercase;letter-spacing:-.02em;font-size:1.05rem}
+.plist .ps{font-size:var(--step-small);color:var(--ash)}
+.plist .pl{display:flex;gap:14px;flex-wrap:wrap}
+.plist .pl a{font-size:var(--step-small);font-weight:600;color:var(--amber);text-decoration:none;white-space:nowrap}
+.plist .pl a:hover{text-decoration:underline;text-underline-offset:.2em}
+.plist p{grid-column:1/-1;margin:0;font-size:var(--step-small);color:var(--bone);opacity:.85;max-width:90ch}
+@media (max-width:700px){.plist li{grid-template-columns:1fr}}
+
 /* ---------- the reel: a window that opens to the whole screen ---------- */
 .showreel{position:relative;height:250svh;background:var(--ink)}
 .sr-pin{position:sticky;top:0;height:100svh;overflow:clip;display:grid;place-items:center}
@@ -494,6 +551,7 @@ a.v:hover{color:var(--amber)}
 </head>
 <body>
 
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://elanxzz.me/#website","url":"https://elanxzz.me/","name":"Elango S","alternateName":["elanxzz","Elango S Portfolio"],"inLanguage":"en","publisher":{"@id":"https://elanxzz.me/#person"},"about":{"@id":"https://elanxzz.me/#person"}},{"@type":"ProfilePage","@id":"https://elanxzz.me/#profilepage","url":"https://elanxzz.me/","name":"Elango S — Founder of SINC, Full-Stack Developer and AI/ML Student","isPartOf":{"@id":"https://elanxzz.me/#website"},"mainEntity":{"@id":"https://elanxzz.me/#person"},"dateModified":"2026-10-27","inLanguage":"en","primaryImageOfPage":{"@type":"ImageObject","url":"https://elanxzz.me/assets/og.jpg","width":1200,"height":630}},{"@type":"Person","@id":"https://elanxzz.me/#person","name":"Elango S","url":"https://elanxzz.me/","image":"https://elanxzz.me/assets/elango.webp","description":"Elango S is the founder of SINC (Society for Innovation, Network & Collaboration), a full-stack developer and a B.Tech Computer Science and Engineering (AI & ML) student at Yenepoya University.","jobTitle":"Founder","worksFor":{"@id":"https://www.sincommunity.in/#organization"},"affiliation":{"@type":"CollegeOrUniversity","name":"Yenepoya (Deemed-to-be University)","alternateName":"Yenepoya University"},"knowsAbout":["Full-Stack Development","AI Agents","Artificial Intelligence","Machine Learning","Software Engineering","React","Next.js","TypeScript","JavaScript","Tailwind CSS","Node.js","Express.js","MongoDB","REST APIs","Python","Java","OpenAI API","Prompt Engineering","WebSockets","Spring Boot","C++","Git & GitHub"],"knowsLanguage":["English","Tamil"],"homeLocation":{"@type":"Place","name":"Bengaluru, Karnataka, India"},"sameAs":["https://github.com/sivakumarelango10-art","https://www.linkedin.com/in/elango-s-a7a8aa367/","https://www.instagram.com/_elanxzz_/","https://github.com/elangoss121-dev","https://www.sincommunity.in/leadership/elango-s"]},{"@type":"Organization","@id":"https://www.sincommunity.in/#organization","name":"SINC","alternateName":"Society for Innovation, Network & Collaboration","url":"https://www.sincommunity.in/","logo":{"@type":"ImageObject","url":"https://www.sincommunity.in/images/brand/sinc-logo.jpeg","width":1254,"height":1254},"description":"SINC is a technology-focused community and collaboration ecosystem where ambitious people connect, collaborate, learn, build and grow together.","slogan":"Where Ambition Finds Its People.","founder":{"@id":"https://elanxzz.me/#person"},"sameAs":["https://www.instagram.com/sincommunity.in/"]}]}</script>
 <div id="grain" aria-hidden="true"></div>
 <div id="progress" aria-hidden="true"></div>
 <div id="cursor" aria-hidden="true"><div class="ring"><div><span id="cursorLabel">Drag</span></div></div><div class="dot"><i></i></div></div>
@@ -519,9 +577,10 @@ a.v:hover{color:var(--amber)}
 <header class="top wrap">
   <div class="brand">
     <a class="mono-mark" href="#top" aria-label="Back to top">E<span>.</span>S</a>
-    <span class="clock" id="clock" aria-label="Local time in Bengaluru">BLR --:-- IST</span>
+    <span class="clock" id="clock" title="Local time in Bengaluru">BLR --:-- IST</span>
   </div>
   <nav aria-label="Sections">
+    <a href="#sinc" class="keep">SINC</a>
     <a href="#work" class="keep">Work</a>
     <a href="#journey">Journey</a>
     <a href="#photos">Photos</a>
@@ -532,6 +591,7 @@ a.v:hover{color:var(--amber)}
 
 <nav class="reels" aria-label="Scenes">
   <a href="#top" data-name="Opening">Opening</a>
+  <a href="#sinc" data-name="Founder of SINC">Founder of SINC</a>
   <a href="#reel" data-name="The reel">The reel</a>
   <a href="#stack" data-name="Stack">Stack</a>
   <a href="#journey" data-name="Journey">Journey</a>
@@ -549,27 +609,56 @@ a.v:hover{color:var(--amber)}
   <div class="rails l" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
   <div class="rails r" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
   <div class="stage">
-    <div class="welcome">Welcome to my world</div>
+    <p class="welcome">Founder of SINC · Full-stack developer · AI &amp; ML student</p>
     <div class="word-wrap">
-      <h1 class="word" id="heroName" aria-label="Elango S, full stack engineer"></h1>
-      <span class="chip a" id="chipA"></span>
-      <span class="chip b" id="chipB"></span>
+      <h1 class="word" id="heroName">Elango S</h1>
+      <span class="chip a" id="chipA">Full-Stack Developer</span>
+      <span class="chip b" id="chipB">Founder · SINC</span>
     </div>
   </div>
   <div class="figure" data-figure aria-hidden="true"><div class="fig-in"></div></div>
   <div class="hero-shade" aria-hidden="true"></div>
-  <a class="btn ghost hero-cv" href="resume.pdf" download="Elango_S_Resume.pdf" data-dl>Download resume ↓</a>
+  <div class="hero-cv"><a class="btn" href="https://sincommunity.in" target="_blank" rel="noopener">Visit SINC ↗</a><a class="btn ghost" href="resume.pdf" download="Elango_S_Resume.pdf" data-dl>Download resume ↓</a></div>
   <div class="hero-foot"><span class="label scroll-cue">Scroll to roll film</span></div>
 </section>
 
 <div class="strip-wrap"><div class="strip tilt" data-strip="1" aria-hidden="true"><div class="strip-track"></div></div></div>
+
+<!-- FOUNDER OF SINC -->
+<section class="sinc wrap" id="sinc" aria-labelledby="sincTitle">
+  <div class="sinc-grid">
+    <figure class="sinc-mark" data-reveal>
+      <span class="sinc-ring" aria-hidden="true"></span>
+      <img src="assets/sinc-logo.webp" alt="SINC logo: three people joined around a shared centre" width="480" height="420" loading="lazy" decoding="async">
+      <figcaption>Elango S <span aria-hidden="true">⟷</span> SINC</figcaption>
+    </figure>
+    <div class="sinc-copy">
+      <h2 id="sincTitle" data-split>Founder of SINC</h2>
+      <p class="sinc-full" data-reveal>SINC — Society for Innovation, Network &amp; Collaboration</p>
+      <p class="sinc-lead" data-reveal style="--d:.08s">I founded SINC, a technology-focused community and collaboration ecosystem where ambitious people connect, collaborate, learn, build and grow together. It brings developers, designers, students, founders and innovators together so they can find teammates, learn from one another and turn ideas into real projects.</p>
+      <blockquote class="sinc-quote" data-reveal style="--d:.14s"><p>No one should have to pursue their ambitions alone.</p><footer>The belief SINC was started around</footer></blockquote>
+      <dl class="sinc-facts" data-reveal style="--d:.2s">
+        <div><dt>Role</dt><dd>Founder</dd></div>
+        <div><dt>What I lead</dt><dd>SINC’s vision, product direction and strategy, overall coordination and final product decisions</dd></div>
+        <div><dt>Incubated at</dt><dd>Yenepoya (Deemed-to-be University), Bengaluru Campus</dd></div>
+        <div><dt>Tagline</dt><dd>Where ambition finds its people.</dd></div>
+      </dl>
+      <div class="sinc-cta" data-reveal style="--d:.26s">
+        <a class="btn" href="https://sincommunity.in" target="_blank" rel="noopener">Visit sincommunity.in ↗</a>
+        <a class="btn ghost" href="https://www.instagram.com/sincommunity.in/" target="_blank" rel="noopener">SINC on Instagram ↗</a>
+        <a class="btn ghost" href="https://www.sincommunity.in/leadership/elango-s" target="_blank" rel="noopener">My founder profile ↗</a>
+      </div>
+      <p class="sinc-note" data-reveal="fade">SINC is a community, separate from this personal portfolio, and is not connected with other organisations that use the names SINC or SIN.</p>
+    </div>
+  </div>
+</section>
 
 <!-- THE REEL -->
 <section class="showreel" id="reel" aria-labelledby="reelTitle">
   <div class="sr-pin">
     <h2 class="sr-title" id="reelTitle">The reel</h2>
     <div class="sr-window" id="srWindow">
-      <video id="srVideo" muted loop playsinline preload="none" poster="assets/reel-wide.webp" aria-label="A twelve second reel of photos of Elango"></video>
+      <video id="srVideo" muted loop playsinline preload="none" poster="assets/reel-wide.webp" aria-hidden="true"></video>
     </div>
     <p class="sr-cap" id="srCap">Temple steps, garden light, a car out front. The parts of me that don't fit in a README.</p>
   </div>
@@ -590,7 +679,7 @@ a.v:hover{color:var(--amber)}
       <div class="figure-sm" data-figure aria-hidden="true"><div class="fig-in" data-reveal="rise"></div></div>
     </div>
   </div>
-  <ul class="stack-list" id="stackList" data-reveal aria-label="Tech stack"></ul>
+  <ul class="stack-list" id="stackList" data-reveal><li>React</li><li>Next.js</li><li>TypeScript</li><li>JavaScript</li><li>Tailwind CSS</li><li>Node.js</li><li>Express.js</li><li>MongoDB</li><li>REST APIs</li><li>Python</li><li>Java</li><li>OpenAI API</li><li>Prompt Engineering</li><li>WebSockets</li><li>Spring Boot</li><li>C++</li><li>Git &amp; GitHub</li></ul>
   <div class="figs" id="figs" data-reveal style="--d:.1s"></div>
 </section>
 
@@ -616,7 +705,7 @@ a.v:hover{color:var(--amber)}
     </svg>
     <div class="year-card" aria-live="polite" data-reveal style="--d:.15s">
       <div class="big" id="ycYear" aria-hidden="true"></div>
-      <h3><span class="sr" id="ycYearSr"></span><span id="ycTitle"></span></h3>
+      <h3><span class="sr" id="ycYearSr">2026: </span><span id="ycTitle">Second year, now showing</span></h3>
       <p id="ycBody"></p>
       <div class="tags" id="ycTags"></div>
       <div class="label hint">Move across the dial, tap a year, or use ← →</div>
@@ -635,7 +724,7 @@ a.v:hover{color:var(--amber)}
       <p data-reveal style="--d:.2s">Drag the room or use the arrows to turn it. Open any screen for the story behind the build.</p>
     </div>
   </div>
-  <div class="room" id="room" data-cursor="Drag" aria-roledescription="carousel" aria-label="Projects">
+  <div class="room" id="room" data-cursor="Drag" role="region" aria-roledescription="carousel" aria-label="Projects">
     <div class="corner tl">15 builds<br>Web · AI · Real time<br>Drag to explore</div>
     <div class="corner tr">Razorpay<br>WebSockets<br>OpenAI</div>
     <div class="wall" id="wall"></div>
@@ -646,11 +735,31 @@ a.v:hover{color:var(--amber)}
       <button type="button" id="roomNext" aria-label="Next project">→</button>
     </div>
   </div>
+  <details class="pindex wrap" id="pindex">
+    <summary>All 15 projects as a list</summary>
+    <ul class="plist">
+      <li><h3>SkillSync AI</h3><span class="ps">Next.js · TypeScript · OpenAI API</span><span class="pl"><a href="https://github.com/elangoss121-dev/SkillSync-AI" target="_blank" rel="noopener">GitHub source ↗</a></span><p>An AI developer workspace that analyses codebases, generates AST-aware unit tests, refactors legacy functions and writes live documentation.</p></li>
+      <li><h3>SmartTravel</h3><span class="ps">React · Spring Boot · WebSockets</span><span class="pl"><a href="https://smart-travel.vercel.app/" target="_blank" rel="noopener">Launch live ↗</a><a href="https://github.com/sivakumarelango10-art/smart-travel" target="_blank" rel="noopener">GitHub source ↗</a></span><p>A full stack travel platform: flight and hotel search, live flight tracking, dynamic pricing, price freeze, seat and room selection, Razorpay payments, refunds and reviews. Built with JWT and Google OAuth, role-based access and real-time WebSocket updates, then hardened with code audits, concurrency checks and performance testing.</p></li>
+      <li><h3>KalviLearn</h3><span class="ps">JavaScript · Monaco Editor · RBAC</span><span class="pl"><a href="https://kalvilearn.vercel.app/" target="_blank" rel="noopener">Launch live ↗</a></span><p>A coding practice platform with structured modules and a Monaco-based editor for Python, C++, Java and JavaScript. Automated test-case evaluation, progress tracking, coding streaks, a revision system, and roles for super admins, campus managers, mentors and students.</p></li>
+      <li><h3>Zyrocore</h3><span class="ps">E-commerce · Razorpay · Admin</span><span class="pl"><a href="https://github.com/sivakumarelango10-art/zyrocore" target="_blank" rel="noopener">GitHub source ↗</a></span><p>A storefront for an Indian streetwear brand with size-based inventory, cart, secure checkout through Razorpay, and an admin dashboard for products, orders and stock.</p></li>
+      <li><h3>TeamSync Workspace</h3><span class="ps">Full stack · Project management</span><span class="pl"><a href="https://github.com/sivakumarelango10-art" target="_blank" rel="noopener">GitHub profile ↗</a></span><p>A collaborative workspace for teams: create workspaces, manage members, organise projects, assign tasks and track progress in one place.</p></li>
+      <li><h3>ReelTube</h3><span class="ps">Next.js · TypeScript · REST API</span><span class="pl"><a href="https://v0-mediagrab.vercel.app/" target="_blank" rel="noopener">Launch live ↗</a><a href="https://github.com/elangoss121-dev/v0-media-downloader" target="_blank" rel="noopener">GitHub source ↗</a></span><p>A fast media downloader that pulls HD video and audio from YouTube and Instagram through custom REST endpoints, with a client-side download queue.</p></li>
+      <li><h3>Kangeyan Heritage</h3><span class="ps">Next.js · Tailwind · E-commerce</span><span class="pl"><a href="https://kangeyan-heritage.vercel.app/" target="_blank" rel="noopener">Launch live ↗</a><a href="https://github.com/elangoss121-dev/Kangeyan-Heritage" target="_blank" rel="noopener">GitHub source ↗</a></span><p>A mobile-first store for a heritage apparel brand with pre-rendered pages, responsive images, category filters and a short checkout.</p></li>
+      <li><h3>NextGen Learning</h3><span class="ps">Next.js · TypeScript · Charts</span><span class="pl"><a href="https://nextgen-learning-dashboard-delta.vercel.app/dashboard" target="_blank" rel="noopener">Launch live ↗</a><a href="https://github.com/elangoss121-dev/nextgen-learning-dashboard" target="_blank" rel="noopener">GitHub source ↗</a></span><p>A learning analytics dashboard with live progress tracking, milestones and modular chart widgets.</p></li>
+      <li><h3>PGHub</h3><span class="ps">React · Next.js · Auth</span><span class="pl"><a href="https://pghub-seven.vercel.app/" target="_blank" rel="noopener">Launch live ↗</a><a href="https://github.com/elangoss121-dev/PGHub" target="_blank" rel="noopener">GitHub source ↗</a></span><p>Property management for PGs and hostels: room allocation, automated rent schedules, tenant records and role-based access.</p></li>
+      <li><h3>Prompt Craft</h3><span class="ps">React · CSS · Generative AI</span><span class="pl"></span><p>A prompt engineering sandbox that turns rough inputs into structured system instructions using templates.</p></li>
+      <li><h3>Sumz CLI</h3><span class="ps">Python · OpenAI API · Click</span><span class="pl"></span><p>A command-line tool that reads documents and writes clean bulleted summaries.</p></li>
+      <li><h3>TaskFlow Kanban</h3><span class="ps">React · Tailwind · Drag and drop</span><span class="pl"></span><p>A drag-and-drop board for daily developer routines that saves to local storage.</p></li>
+      <li><h3>Aura Player</h3><span class="ps">React · Tailwind · Web Audio API</span><span class="pl"></span><p>A dark minimal music player with live visualiser bars and playlist controls.</p></li>
+      <li><h3>PyTelegram Log Bot</h3><span class="ps">Python · Telegram Bot API</span><span class="pl"></span><p>A Python bot that watches system logs and forwards security warnings to Telegram channels.</p></li>
+      <li><h3>Aero Weather</h3><span class="ps">HTML5 · CSS3 · JavaScript</span><span class="pl"></span><p>A glassmorphic weather dashboard on open weather APIs with custom icons.</p></li>
+    </ul>
+  </details>
 </section>
 
 <!-- OFF THE CLOCK -->
 <section class="prints" id="photos" aria-labelledby="photosTitle">
-  <h2 id="photosTitle">Off the<br>clock</h2>
+  <h2 id="photosTitle">Off the <br>clock</h2>
   <div id="printLayer"></div>
   <p class="prints-note">Temple steps, garden walks and a few good shirts. Drag the prints around.</p>
   <button class="btn prints-reset" type="button" id="printsReset">Tidy up</button>
@@ -663,8 +772,8 @@ a.v:hover{color:var(--amber)}
   <div class="fin-light" aria-hidden="true"></div>
   <div class="fin-grid">
   <div class="fin-main">
-  <h2 id="contactTitle" data-split>Let's build<span class="serif">together</span></h2>
-  <div class="term" aria-label="Contact terminal" data-reveal style="--d:.1s">
+  <h2 id="contactTitle" data-split>Let's build <span class="serif">together</span></h2>
+  <div class="term" role="group" aria-label="Contact terminal" data-reveal style="--d:.1s">
     <div class="term-bar"><i></i><i></i><i></i></div>
     <pre id="termOut"></pre>
   </div>
@@ -687,23 +796,23 @@ a.v:hover{color:var(--amber)}
         <ul class="det-list">
           <li>
             <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></span>
-            <div><span class="k">Email</span><a class="v" id="cEmailLink" href="#"></a></div>
+            <div><span class="k">Email</span><a class="v" id="cEmailLink" href="mailto:sivakumarelango10@gmail.com">sivakumarelango10@gmail.com</a></div>
             <button class="mini" type="button" id="copyEmail">Copy</button>
           </li>
           <li>
             <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 3h3.2l1.6 4.4-2.2 1.5a11.5 11.5 0 0 0 7.5 7.5l1.5-2.2L21 15.8V19a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg></span>
-            <div><span class="k">Phone · WhatsApp</span><a class="v" id="cPhoneLink" href="#"></a></div>
+            <div><span class="k">Phone · WhatsApp</span><a class="v" id="cPhoneLink" href="tel:+916379883404">+91&nbsp;63798&nbsp;83404</a></div>
             <a class="mini" id="waDirect" href="#" target="_blank" rel="noopener">Chat ↗</a>
           </li>
           <li>
             <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
-            <div><span class="k">Location</span><span class="v" id="cLoc"></span></div>
+            <div><span class="k">Location</span><span class="v" id="cLoc">Bengaluru, Karnataka, India</span></div>
           </li>
         </ul>
       </div>
       <div class="card" data-reveal style="--d:.12s">
         <h3>Social networks</h3>
-        <div class="soc" id="socials"></div>
+        <div class="soc" id="socials"><a href="https://github.com/sivakumarelango10-art" target="_blank" rel="noopener" aria-label="GitHub (opens in a new tab)"><span aria-hidden="true">GH</span><small aria-hidden="true">GitHub</small></a><a href="https://www.linkedin.com/in/elango-s-a7a8aa367/" target="_blank" rel="noopener" aria-label="LinkedIn (opens in a new tab)"><span aria-hidden="true">IN</span><small aria-hidden="true">LinkedIn</small></a><a href="https://www.instagram.com/_elanxzz_/" target="_blank" rel="noopener" aria-label="Instagram (opens in a new tab)"><span aria-hidden="true">IG</span><small aria-hidden="true">Instagram</small></a><a href="https://github.com/elangoss121-dev" target="_blank" rel="noopener" aria-label="GitHub · projects (opens in a new tab)"><span aria-hidden="true">GP</span><small aria-hidden="true">GitHub · projects</small></a><a href="https://sincommunity.in" target="_blank" rel="noopener" aria-label="SINC (opens in a new tab)"><span aria-hidden="true">SC</span><small aria-hidden="true">SINC</small></a></div>
       </div>
     </div>
     <form class="card cform" id="cform" novalidate data-reveal style="--d:.08s" aria-labelledby="cformTitle">
@@ -724,7 +833,7 @@ a.v:hover{color:var(--amber)}
       <div class="field">
         <label for="cSubj">Subject</label>
         <input id="cSubj" name="subject" type="text" placeholder="Project inquiry / Opportunity" maxlength="120">
-        <div class="chips" id="cChips" aria-label="Quick subjects"></div>
+        <div class="chips" id="cChips" role="group" aria-label="Quick subjects"></div>
       </div>
       <div class="field">
         <label for="cMsg">Message details</label>
@@ -740,13 +849,13 @@ a.v:hover{color:var(--amber)}
     </form>
   </div>
   <div class="credits label" data-reveal="fade">
-    <span>Directed &amp; built by <b>Elango S</b> · Bengaluru</span>
+    <span>Directed &amp; built by <b>Elango S</b> · Founder of <a href="https://sincommunity.in" target="_blank" rel="noopener">SINC</a> · Bengaluru</span>
     <a class="totop" href="#top">Back to top ↑</a>
     <span id="year"></span>
   </div>
 </section>
 <footer class="monument" aria-label="Elango S">
-  <p>Thanks for watching. The next build could be yours.</p>
+  <p>Thanks for watching. The next build could be yours — and SINC is where builders meet.</p>
   <div id="monument" aria-hidden="true">Elango S</div>
 </footer>
 </main>
@@ -754,7 +863,7 @@ a.v:hover{color:var(--amber)}
 <dialog id="proj" data-lenis-prevent aria-labelledby="pjTitle">
   <div class="dlg-body">
     <div class="label" id="pjNo"></div>
-    <h3 id="pjTitle"></h3>
+    <h3 id="pjTitle">Project</h3>
     <p id="pjBody"></p>
     <div class="tags" id="pjTags"></div>
     <div class="dlg-links" id="pjLinks"></div>
@@ -776,17 +885,27 @@ a.v:hover{color:var(--amber)}
 const CONFIG = {
   name: "ELANGO",
   initial: "S",
-  chips: ["Full Stack Engineer", "AI / ML · B.Tech CSE"],
+  chips: ["Full-Stack Developer", "Founder · SINC"],
   photo: "assets/elango.webp",
   photo2: "assets/elango-2.webp",   // second shot, used in the finale
   email: "sivakumarelango10@gmail.com",
   phone: "+91 63798 83404",
   whatsapp: "916379883404",        // country code + number, digits only: where the contact form sends messages
   location: "Bengaluru, Karnataka, India",
+  // SINC: facts as published on sincommunity.in (do not add anything SINC has not published)
+  sinc: {
+    name: "SINC",
+    fullName: "Society for Innovation, Network & Collaboration",
+    url: "https://sincommunity.in",
+    instagram: "https://www.instagram.com/sincommunity.in/",
+    founderProfile: "https://www.sincommunity.in/leadership/elango-s"
+  },
   socials: [
-    { label: "GitHub",   url: "https://github.com/elangoss121-dev" },
-    { label: "LinkedIn", url: "https://www.linkedin.com/in/elango-s-a7a8aa367/" },
-    { label: "GitHub · art", url: "https://github.com/sivakumarelango10-art" }
+    { label: "GitHub", m: "GH", url: "https://github.com/sivakumarelango10-art" },
+    { label: "LinkedIn", m: "IN", url: "https://www.linkedin.com/in/elango-s-a7a8aa367/" },
+    { label: "Instagram", m: "IG", url: "https://www.instagram.com/_elanxzz_/" },
+    { label: "GitHub · projects", m: "GP", url: "https://github.com/elangoss121-dev" },
+    { label: "SINC", m: "SC", url: "https://sincommunity.in" }
   ],
   // photos for the "Off the clock" prints (assets/gallery)
   gallery: [
@@ -823,21 +942,21 @@ const CONFIG = {
     { y: "2029", t: "The five-year vision",     b: "Graduate as a full stack and AI engineer, design large-scale systems at a company like OpenAI, Google or NVIDIA, and mentor the next generation.", tags: ["Software Architect","AI Engineer","Mentor"] }
   ],
   projects: [
-    { t: "SkillSync AI",          s: "Next.js · TypeScript · OpenAI API",  b: "An AI developer workspace that analyses codebases, generates AST-aware unit tests, refactors legacy functions and writes live documentation.", glow: "rgba(255,154,31,.45)", links: [{ label: "Launch live", url: "https://skillsync-ai-nine.vercel.app/" }, { label: "GitHub source", url: "https://github.com/elangoss121-dev/SkillSync-AI" }] },
-    { t: "SmartTravel",           s: "React · Spring Boot · WebSockets",   b: "A full stack travel platform: flight and hotel search, live flight tracking, dynamic pricing, price freeze, seat and room selection, Razorpay payments, refunds and reviews. Built with JWT and Google OAuth, role-based access and real-time WebSocket updates, then hardened with code audits, concurrency checks and performance testing.", glow: "rgba(255,154,31,.5)", links: [{ label: "GitHub profile", url: "https://github.com/elangoss121-dev" }] },
-    { t: "KalviLearn",            s: "JavaScript · Monaco Editor · RBAC",  b: "A coding practice platform with structured modules and a Monaco-based editor for Python, C++, Java and JavaScript. Automated test-case evaluation, progress tracking, coding streaks, a revision system, and roles for super admins, campus managers, mentors and students.", glow: "rgba(196,66,15,.5)", links: [{ label: "GitHub profile", url: "https://github.com/elangoss121-dev" }] },
-    { t: "Zyrocore",              s: "E-commerce · Razorpay · Admin",      b: "A storefront for an Indian streetwear brand with size-based inventory, cart, secure checkout through Razorpay, and an admin dashboard for products, orders and stock.", glow: "rgba(255,190,90,.38)", links: [{ label: "GitHub profile", url: "https://github.com/elangoss121-dev" }] },
-    { t: "TeamSync Workspace",    s: "Full stack · Project management",   b: "A collaborative workspace for teams: create workspaces, manage members, organise projects, assign tasks and track progress in one place.", glow: "rgba(255,120,30,.42)", links: [{ label: "GitHub profile", url: "https://github.com/elangoss121-dev" }] },
+    { t: "SkillSync AI",          s: "Next.js · TypeScript · OpenAI API",  b: "An AI developer workspace that analyses codebases, generates AST-aware unit tests, refactors legacy functions and writes live documentation.", glow: "rgba(255,154,31,.45)", links: [{ label: "GitHub source", url: "https://github.com/elangoss121-dev/SkillSync-AI" }] },
+    { t: "SmartTravel",           s: "React · Spring Boot · WebSockets",   b: "A full stack travel platform: flight and hotel search, live flight tracking, dynamic pricing, price freeze, seat and room selection, Razorpay payments, refunds and reviews. Built with JWT and Google OAuth, role-based access and real-time WebSocket updates, then hardened with code audits, concurrency checks and performance testing.", glow: "rgba(255,154,31,.5)", links: [{ label: "Launch live", url: "https://smart-travel.vercel.app/" }, { label: "GitHub source", url: "https://github.com/sivakumarelango10-art/smart-travel" }] },
+    { t: "KalviLearn",            s: "JavaScript · Monaco Editor · RBAC",  b: "A coding practice platform with structured modules and a Monaco-based editor for Python, C++, Java and JavaScript. Automated test-case evaluation, progress tracking, coding streaks, a revision system, and roles for super admins, campus managers, mentors and students.", glow: "rgba(196,66,15,.5)", links: [{ label: "Launch live", url: "https://kalvilearn.vercel.app/" }] },
+    { t: "Zyrocore",              s: "E-commerce · Razorpay · Admin",      b: "A storefront for an Indian streetwear brand with size-based inventory, cart, secure checkout through Razorpay, and an admin dashboard for products, orders and stock.", glow: "rgba(255,190,90,.38)", links: [{ label: "GitHub source", url: "https://github.com/sivakumarelango10-art/zyrocore" }] },
+    { t: "TeamSync Workspace",    s: "Full stack · Project management",   b: "A collaborative workspace for teams: create workspaces, manage members, organise projects, assign tasks and track progress in one place.", glow: "rgba(255,120,30,.42)", links: [{ label: "GitHub profile", url: "https://github.com/sivakumarelango10-art" }] },
     { t: "ReelTube",              s: "Next.js · TypeScript · REST API",    b: "A fast media downloader that pulls HD video and audio from YouTube and Instagram through custom REST endpoints, with a client-side download queue.", glow: "rgba(196,66,15,.5)", links: [{ label: "Launch live", url: "https://v0-mediagrab.vercel.app/" }, { label: "GitHub source", url: "https://github.com/elangoss121-dev/v0-media-downloader" }] },
     { t: "Kangeyan Heritage",     s: "Next.js · Tailwind · E-commerce",    b: "A mobile-first store for a heritage apparel brand with pre-rendered pages, responsive images, category filters and a short checkout.", glow: "rgba(255,190,90,.38)", links: [{ label: "Launch live", url: "https://kangeyan-heritage.vercel.app/" }, { label: "GitHub source", url: "https://github.com/elangoss121-dev/Kangeyan-Heritage" }] },
     { t: "NextGen Learning",      s: "Next.js · TypeScript · Charts",      b: "A learning analytics dashboard with live progress tracking, milestones and modular chart widgets.", glow: "rgba(255,120,30,.42)", links: [{ label: "Launch live", url: "https://nextgen-learning-dashboard-delta.vercel.app/dashboard" }, { label: "GitHub source", url: "https://github.com/elangoss121-dev/nextgen-learning-dashboard" }] },
     { t: "PGHub",                 s: "React · Next.js · Auth",             b: "Property management for PGs and hostels: room allocation, automated rent schedules, tenant records and role-based access.", glow: "rgba(255,154,31,.35)", links: [{ label: "Launch live", url: "https://pghub-seven.vercel.app/" }, { label: "GitHub source", url: "https://github.com/elangoss121-dev/PGHub" }] },
-    { t: "Prompt Craft",          s: "React · CSS · Generative AI",        b: "A prompt engineering sandbox that turns rough inputs into structured system instructions using templates.", glow: "rgba(196,66,15,.45)", links: [{ label: "GitHub source", url: "https://github.com/elangoss121-dev/prompt-craft-optimizer" }] },
-    { t: "Sumz CLI",              s: "Python · OpenAI API · Click",        b: "A command-line tool that reads documents and writes clean bulleted summaries.", glow: "rgba(255,200,120,.32)", links: [{ label: "GitHub source", url: "https://github.com/elangoss121-dev/sumz-cli" }] },
-    { t: "TaskFlow Kanban",       s: "React · Tailwind · Drag and drop",   b: "A drag-and-drop board for daily developer routines that saves to local storage.", glow: "rgba(255,154,31,.38)", links: [{ label: "GitHub source", url: "https://github.com/elangoss121-dev/taskflow-kanban" }] },
-    { t: "Aura Player",           s: "React · Tailwind · Web Audio API",   b: "A dark minimal music player with live visualiser bars and playlist controls.", glow: "rgba(196,66,15,.5)", links: [{ label: "GitHub source", url: "https://github.com/elangoss121-dev/aura-music-player" }] },
-    { t: "PyTelegram Log Bot",    s: "Python · Telegram Bot API",          b: "A Python bot that watches system logs and forwards security warnings to Telegram channels.", glow: "rgba(255,120,30,.38)", links: [{ label: "GitHub source", url: "https://github.com/elangoss121-dev/pytelegram-logger" }] },
-    { t: "Aero Weather",          s: "HTML5 · CSS3 · JavaScript",          b: "A glassmorphic weather dashboard on open weather APIs with custom icons.", glow: "rgba(255,190,90,.35)", links: [{ label: "GitHub source", url: "https://github.com/elangoss121-dev/aero-weather-glass" }] }
+    { t: "Prompt Craft",          s: "React · CSS · Generative AI",        b: "A prompt engineering sandbox that turns rough inputs into structured system instructions using templates.", glow: "rgba(196,66,15,.45)", links: [] },
+    { t: "Sumz CLI",              s: "Python · OpenAI API · Click",        b: "A command-line tool that reads documents and writes clean bulleted summaries.", glow: "rgba(255,200,120,.32)", links: [] },
+    { t: "TaskFlow Kanban",       s: "React · Tailwind · Drag and drop",   b: "A drag-and-drop board for daily developer routines that saves to local storage.", glow: "rgba(255,154,31,.38)", links: [] },
+    { t: "Aura Player",           s: "React · Tailwind · Web Audio API",   b: "A dark minimal music player with live visualiser bars and playlist controls.", glow: "rgba(196,66,15,.5)", links: [] },
+    { t: "PyTelegram Log Bot",    s: "Python · Telegram Bot API",          b: "A Python bot that watches system logs and forwards security warnings to Telegram channels.", glow: "rgba(255,120,30,.38)", links: [] },
+    { t: "Aero Weather",          s: "HTML5 · CSS3 · JavaScript",          b: "A glassmorphic weather dashboard on open weather APIs with custom icons.", glow: "rgba(255,190,90,.35)", links: [] }
   ]
 };
 
@@ -949,10 +1068,11 @@ function makeTextures() {
 
 /* ---------- reel 1 ---------- */
 function buildHero() {
-  const w = $('#heroName');
+  const w = $('#heroName'); w.textContent = '';
+  const name = document.createElement('span'); name.className = 'sr'; name.textContent = 'Elango S'; w.append(name);
   const add = (ch, cls, i) => { const s = document.createElement('span'); s.className = cls; s.textContent = ch; s.style.setProperty('--i', i); s.setAttribute('aria-hidden', 'true'); w.append(s); };
   [...CONFIG.name].forEach((ch, i) => add(ch, 'ch', i));
-  const g = document.createElement('span'); g.className = 'gap'; w.append(g);
+  const g = document.createElement('span'); g.className = 'gap'; g.textContent = ' '; w.append(g);
   add(CONFIG.initial, 'ch s', CONFIG.name.length + 1);
   $('#chipA').textContent = CONFIG.chips[0]; $('#chipB').textContent = CONFIG.chips[1];
   $$('.dots').forEach(d => { for (let i = 0; i < 16; i++) { const e = document.createElement('i'); e.style.setProperty('--n', (i % 8) + Math.floor(i / 8)); d.append(e); } });
@@ -1040,11 +1160,12 @@ function setupStrips() {
 
 /* ---------- reel 2: stack ring ---------- */
 function setupStack() {
-  const stage = $('#uni'), ring = $('#ring'), list = $('#stackList'), S2 = CONFIG.stack, n = S2.length, seen = watch(stage);
+  const stage = $('#uni'), ring = $('#ring'), list = $('#stackList'); if (list.children.length) list.dataset.static = '1';
+  const S2 = CONFIG.stack, n = S2.length, seen = watch(stage);
   S2.forEach(s => {
     const d = document.createElement('div'); d.className = 'tool'; d.setAttribute('aria-hidden', 'true');
     d.innerHTML = `<span class="kind">${s.k}</span><span class="mono">${s.m}</span><span class="nm">${s.n}</span>`; ring.append(d);
-    const li = document.createElement('li'); li.textContent = s.n; list.append(li);
+    if (!list.dataset.static) { const li = document.createElement('li'); li.textContent = s.n; list.append(li); }
   });
   let R = 400, asm = cinematic ? 0 : 1;               // asm: cards fly out from the centre on first view
   const TILT = -3, TILT_RANGE = 6;                    // small tilt, so front cards never swing up into the face
@@ -1314,7 +1435,7 @@ function setupFinale() {
   $('#year').textContent = `© ${new Date().getFullYear()} · elanxzz.me`;
   setupContact();
   const lines = [
-    ['p', '$ whoami'], ['', 'elango s · full stack engineer · b.tech cse (ai/ml), yenepoya university'],
+    ['p', '$ whoami'], ['', 'elango s · founder of sinc · full-stack developer · b.tech cse (ai & ml), yenepoya university'],
     ['p', '$ cat goal.txt'], ['', 'build large-scale products with modern web, cloud and AI, and mentor future developers'],
     ['p', '$ where'], ['', 'bengaluru, karnataka, india'],
     ['p', '$ contact --now'], ['c', `→ ${CONFIG.email}  ·  ${CONFIG.phone}`]
@@ -1363,7 +1484,7 @@ function setupContact() {
   const ph = $('#cPhoneLink'); ph.textContent = CONFIG.phone; ph.href = `tel:+${wa}`;
   $('#waDirect').href = waUrl(`Hi Elango, I found your portfolio at elanxzz.me.`);
   $('#cLoc').textContent = CONFIG.location || 'Bengaluru, Karnataka, India';
-  const mono = { GitHub: 'GH', LinkedIn: 'IN', 'GitHub · art': 'GA' };
+  const mono = { GitHub: 'GH', LinkedIn: 'IN', Instagram: 'IG' };
   $('#socials').innerHTML = CONFIG.socials.map(s =>
     `<a href="${s.url}" target="_blank" rel="noopener" aria-label="${s.label} (opens in a new tab)"><span aria-hidden="true">${s.m || mono[s.label] || s.label.slice(0, 2).toUpperCase()}</span><small aria-hidden="true">${s.label}</small></a>`).join('') +
     `<a href="${waUrl()}" target="_blank" rel="noopener" aria-label="WhatsApp (opens in a new tab)"><span aria-hidden="true">WA</span><small aria-hidden="true">WhatsApp</small></a>` +
@@ -1613,7 +1734,7 @@ function setupReveal() {
 /* ---------- header, progress, active section, reel indicator, local time ---------- */
 function setupChrome() {
   const top = $('header.top'), bar = $('#progress'), links = $$('.top nav a[href^="#"]'), reels = $('.reels'), reelLinks = $$('a', reels);
-  const ids = ['top', 'reel', 'stack', 'journey', 'work', 'photos', 'contact'];
+  const ids = ['top', 'sinc', 'reel', 'stack', 'journey', 'work', 'photos', 'contact'];
   let secs = [], rtops = [], lastY = -1, down = 0, up = 0, hidden = false, active = -2, ractive = -2, rshow = null;
   onMeasure(() => {
     const topOf = id => { const t = document.getElementById(id); return t ? t.getBoundingClientRect().top + scrollY : 1e9; };
