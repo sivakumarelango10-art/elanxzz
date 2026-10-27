@@ -83,4 +83,4 @@ It also works on GitHub Pages or Netlify as-is, since it is a static site.
 
 ## Google Search Console
 
-Property: **URL prefix** `https://www.elanxzz.me/`, verified with the HTML tag. To change the tag, set `GSC_TOKEN` in the build script (or edit the `google-site-verification` meta in `index.html`), then submit `sitemap.xml` in Search Console.
+Property: **URL prefix** `https://www.elanxzz.me/`, verified with Google's HTML file `googleb22b4e39143d9eed.html` at the site root. Do not rename, edit or delete that file, or verification is lost. Submit `sitemap.xml` under Sitemaps.
