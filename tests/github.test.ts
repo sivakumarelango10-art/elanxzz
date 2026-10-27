@@ -88,6 +88,23 @@ test('description rules: sufficient GitHub text, README fallback, neutral fallba
   for (const x of p.projects) assert.match(x.url, /^https:\/\/github\.com\//);
 });
 
+test('README fallback skips navigation rows, list lead-ins and credit lines', () => {
+  const nav = '# 🌀 demo\n\n**Developed by [Elango](https://github.com/x)**\n\n[Features](#f) · [How It Works](#h) · [Setup](#s) · [Credits](#c)\n\n---\n\nSummons a glowing orb above an open palm using webcam hand tracking in the browser.\n';
+  assert.equal(readmeSummary(nav), 'Summons a glowing orb above an open palm using webcam hand tracking in the browser.');
+  const leadIn = '# App\n\nTo achieve sub-second perceived response times without compromising on database authenticity:\n\n- caching\n\nThe app books flights and hotels with live seat maps and secure online payments.\n';
+  assert.equal(readmeSummary(leadIn), 'The app books flights and hotels with live seat maps and secure online payments.');
+});
+
+test('every curated description is 15–30 words and only used when GitHub has none', async () => {
+  const { CURATED } = await import('../lib/descriptions');
+  for (const [name, d] of Object.entries(CURATED)) {
+    const n = d.split(/\s+/).length;
+    assert.ok(n >= 15 && n <= 30, `${name}: ${n} words`);
+  }
+  const p = await buildProjects('u', [repo({ name: 'zyrocore', description: 'Clothing storefront with a cart and online checkout for a fashion brand' })], { readmeLookups: false });
+  assert.equal(p.projects[0].source, 'github');
+});
+
 test('clampWords keeps descriptions short', () => {
   const long = Array.from({ length: 50 }, (_, i) => `w${i}`).join(' ');
   assert.ok(clampWords(long).split(' ').length <= 30);

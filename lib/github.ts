@@ -174,7 +174,10 @@ export function clampWords(text: string, max = 30): string {
 
 /** First prose paragraph of a README in plain text (no badges, headings, code, HTML or link markup). */
 export function readmeSummary(md: string): string | null {
-  const text = md
+  // only the opening of the README describes the project; deeper sections are setup, licences, internals
+  const h2 = [...md.matchAll(/^##\s/gm)].map(m => m.index ?? 0);
+  const intro = md.slice(0, Math.min(h2.length > 1 ? h2[1] : md.length, 3000));
+  const text = intro
     .replace(/\r/g, '')
     .replace(/<!--[\s\S]*?-->/g, '')
     .replace(/```[\s\S]*?```/g, '\n')
@@ -185,9 +188,14 @@ export function readmeSummary(md: string): string | null {
   for (const block of text.split(/\n\s*\n/)) {
     const lines = block.split('\n').map(l => l.trim()).filter(Boolean);
     if (!lines.length) continue;
-    if (lines.every(l => /^(#|>?\s*[-*+|]|\d+\.|=+$|-+$|\|)/.test(l))) continue; // headings, lists, tables, rules
-    const p = lines.filter(l => !/^#/.test(l)).join(' ')
-      .replace(/^>\s*/, '').replace(/[*_`~]/g, '').replace(/\s+/g, ' ').trim();
+    if (lines.every(l => /^(#|>?\s*[-*+]\s|>?\s*\||\d+\.\s|=+$|-{3,}$)/.test(l))) continue; // headings, lists, tables, rules
+    const p = lines
+      .filter(l => !/^#/.test(l) && !/^(created|developed|made|built|done)\s+by\b/i.test(l.replace(/^[>*_\s]+/, '')))
+      .map(l => l.replace(/^>\s*/, ''))
+      .join(' ').replace(/[*_`~]/g, '').replace(/\s+/g, ' ').trim();
+    if ((p.match(/ · | \| /g) || []).length >= 2) continue;   // navigation rows such as "Features · Setup · Credits"
+    if (/:$/.test(p)) continue;                                 // a lead-in to a list, not a description
+    if (/[{}]/.test(p) || (p.match(/(^|\s)(\d+\.|-)\s/g) || []).length >= 2) continue; // code or an inline list
     if (words(p).length >= 8 && /[a-z]/.test(p)) return clampWords(p);
   }
   return null;
