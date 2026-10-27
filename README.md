@@ -50,7 +50,7 @@ To change a photo, replace `assets/elango.webp` (or `assets/elango-2.webp` for t
 
 ## SEO and structured data
 
-- `index.html` head: title, description, canonical `https://elanxzz.me/`, robots, Open Graph (profile) and Twitter card, theme colour, favicon and Apple touch icon.
+- `index.html` head: title, description, canonical `https://www.elanxzz.me/` (elanxzz.me redirects there on Vercel), robots, Open Graph (profile) and Twitter card, theme colour, favicon and Apple touch icon.
 - One JSON-LD graph: `WebSite`, `ProfilePage`, `Person` (Elango S) and `Organization` (SINC, using the same `@id` as sincommunity.in), linked with `worksFor` / `founder`.
 - `robots.txt` and `sitemap.xml` at the root; `vercel.json` adds security headers and asset caching.
 - Name, roles, stack, contact details, socials and the project list are in the HTML itself, not only rendered by script.
@@ -80,3 +80,7 @@ It also works on GitHub Pages or Netlify as-is, since it is a static site.
 - The full intro plays once per visit; reloading in the same tab gets a short spotlight version.
 - The detection box is placed from `CONFIG.face` (the face's position as fractions of the hero photo). Update it if you change the photo.
 - Respects `prefers-reduced-motion` with a calm static version.
+
+## Google Search Console
+
+Property: **URL prefix** `https://www.elanxzz.me/`, verified with the HTML tag. To change the tag, set `GSC_TOKEN` in the build script (or edit the `google-site-verification` meta in `index.html`), then submit `sitemap.xml` in Search Console.

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://elanxzz.me/sitemap.xml
+Sitemap: https://www.elanxzz.me/sitemap.xml
