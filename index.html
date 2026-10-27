@@ -321,67 +321,40 @@ section.reel{position:relative;padding-block:clamp(88px,14vh,160px)}
 .hint{margin-top:18px}
 @media (max-width:820px){.chrono-grid{grid-template-columns:1fr}.year-card{min-height:0}.yr text{font-size:38px;letter-spacing:2px}}
 
-/* ---------- reel 4: projects room ---------- */
-.room{--cw:380px;position:relative;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px))) calc(-1 * max(16px,env(safe-area-inset-right,0px)));height:clamp(560px,78vh,760px);perspective:1600px;overflow:hidden;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none}
-.room.dragging{cursor:grabbing}
-.room::after{content:"";position:absolute;left:50%;bottom:5%;width:min(900px,120vw);aspect-ratio:3.2/1;transform:translateX(-50%) rotateX(76deg);border-radius:50%;border:1.5px solid rgba(239,230,216,.4);box-shadow:0 0 50px rgba(255,154,31,.18),inset 0 0 80px rgba(255,154,31,.08);pointer-events:none}
-.room::before{content:"";position:absolute;inset:auto 0 0;height:40%;background:linear-gradient(transparent,rgba(255,154,31,.05));pointer-events:none}
-.wall{position:absolute;left:50%;top:38%;width:0;height:0;transform-style:preserve-3d}
-.screen{position:absolute;left:0;top:0;width:var(--cw);height:calc(var(--cw)*.6);margin:calc(var(--cw)*-.3) 0 0 calc(var(--cw)*-.5);border-radius:12px;border:1px solid rgba(255,154,31,.45);background:linear-gradient(135deg,#17110b,#0a0807);box-shadow:0 0 30px rgba(255,140,30,.16),0 0 2px rgba(255,200,140,.9) inset;padding:20px 22px;display:flex;flex-direction:column;justify-content:space-between;text-align:left;cursor:pointer;overflow:hidden;backface-visibility:hidden;will-change:transform,opacity}
-.screen::before{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:0 0 0 1px var(--amber) inset,0 0 70px rgba(255,140,30,.35) inset;opacity:0;transition:opacity .45s;pointer-events:none}
-.screen:hover::before,.screen:focus-visible::before,.screen.front::before{opacity:1}
-.screen::after{content:"";position:absolute;right:-30%;bottom:-60%;width:80%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,var(--glow,rgba(255,154,31,.35)),transparent 65%);transition:transform .8s var(--ease-out)}
-.screen:hover::after{transform:scale(1.25)}
-.screen .spot{position:absolute;inset:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,30%),rgba(255,154,31,.2),transparent 65%);opacity:0;transition:opacity .4s;pointer-events:none}
-.screen:hover .spot{opacity:1}
-.screen .no{display:none;font-family:var(--f-body);font-size:var(--step-small);color:var(--amber);position:relative;z-index:1}
-.screen .ttl{font-family:var(--f-display);font-stretch:var(--wide);font-weight:800;text-transform:uppercase;letter-spacing:-.02em;font-size:calc(var(--cw)*.062);line-height:1;max-width:12ch;position:relative;z-index:1;transition:transform .6s var(--ease-out)}
-.screen:hover .ttl{transform:translate3d(6px,0,0)}
-.screen .stk{font-family:var(--f-body);font-size:var(--step-small);color:var(--ash);position:relative;z-index:1;padding-right:70px}
-.screen .cta{position:absolute;right:18px;bottom:16px;font-family:var(--f-body);font-size:var(--step-small);letter-spacing:0;border:1px solid var(--line);padding:3px 9px;border-radius:20px;z-index:1;transition:background-color .3s,color .3s}
-.screen:hover .cta,.screen.front .cta{background:var(--amber);color:var(--ink);border-color:var(--amber)}
-.figure-room{position:absolute;left:50%;bottom:0;height:46%;transform:translateX(-50%);z-index:5;pointer-events:none}
-.corner{position:absolute;z-index:6;font-family:var(--f-body);letter-spacing:0;font-size:var(--step-small);color:var(--ash);line-height:1.9;pointer-events:none}
-.corner.tl{left:max(16px,env(safe-area-inset-left,0px));top:8px}
-.corner.tr{right:max(16px,env(safe-area-inset-right,0px));top:8px;text-align:right}
-.room-ui{position:absolute;left:0;right:0;bottom:18px;z-index:7;display:flex;justify-content:center;align-items:center;gap:clamp(12px,3vw,28px)}
-.room-ui button{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:rgba(7,6,5,.7);cursor:pointer;display:grid;place-items:center;font-size:1.1rem;transition:border-color .3s,color .3s,transform .5s var(--ease-out)}
-.room-ui button:hover{border-color:var(--amber);color:var(--amber)}
-.now{min-width:min(300px,56vw);text-align:center;display:grid;gap:2px}
-.now b{font-family:var(--f-body);font-weight:400;font-size:var(--step-small);color:var(--amber);letter-spacing:0}
-.now span{font-family:var(--f-display);font-stretch:var(--wide);font-weight:800;text-transform:uppercase;letter-spacing:-.02em;font-size:1.05rem;line-height:1.15}
-@media (max-width:1100px){.room{--cw:320px}}
-@media (max-width:700px){
-  .room{margin-inline:0;height:auto;perspective:none;cursor:auto;overflow:visible;user-select:auto;-webkit-user-select:auto}
-  .room::after,.room::before,.figure-room,.corner,.room-ui{display:none}
-  .wall{position:static;width:auto;height:auto;display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:14px;scrollbar-width:none;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px))}
-  .wall::-webkit-scrollbar{display:none}
-  .screen{--cw:min(86vw,360px);position:relative;margin:0;flex:0 0 var(--cw);transform:none!important;opacity:1!important;visibility:visible!important;scroll-snap-align:center}
-}
+/* ---------- reel 4: projects, live from GitHub ---------- */
+.reel-head p a.gh-profile{color:var(--bone);text-underline-offset:4px;text-decoration-color:rgba(239,230,216,.4);transition:text-decoration-color .3s}
+.reel-head p a.gh-profile:hover{text-decoration-color:var(--bone)}
+.gh-status{max-width:1240px;margin:0 auto 16px;display:flex;align-items:center;gap:10px;font-size:var(--step-small);color:var(--ash);min-height:1.6em}
+.gh-status::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--ash);transition:background-color .4s}
+.gh-status[data-state="live"]::before{background:var(--bone);box-shadow:0 0 0 4px rgba(239,230,216,.12)}
+.gh-status[data-state="loading"]::before{animation:ghPulse 1s ease-in-out infinite alternate}
+.gh-status[data-state="error"]{color:var(--bone)}
+@keyframes ghPulse{to{opacity:.25}}
+.gh-grid{list-style:none;margin:0 auto;padding:0;max-width:1240px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.gh-grid:empty{display:none}
+.gh-card{position:relative;display:flex;flex-direction:column;gap:12px;min-width:0;min-height:230px;padding:clamp(22px,2.4vw,32px);background:var(--ink);transition:background-color .5s var(--ease-out)}
+.gh-card::before{content:"";position:absolute;left:0;right:0;top:-1px;height:1px;background:var(--bone);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease-out)}
+.gh-card:hover,.gh-card:focus-within{background:#100d0a}
+.gh-card:hover::before,.gh-card:focus-within::before{transform:scaleX(1)}
+.gh-name{margin:0;font-family:var(--f-display);font-stretch:112%;font-weight:700;font-size:clamp(1.05rem,.98rem + .3vw,1.25rem);line-height:1.2;letter-spacing:-.01em;color:var(--bone);overflow-wrap:anywhere}
+.gh-desc{margin:0;flex:1;font-size:.9375rem;line-height:1.6;color:var(--ash);transition:color .5s}
+.gh-card:hover .gh-desc{color:#b5ab9b}
+.gh-link{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;padding:6px 0;font-weight:600;font-size:.9375rem;color:var(--bone);text-decoration:none;border-bottom:1px solid rgba(239,230,216,.3);transition:border-color .3s,color .3s}
+.gh-link::after{content:"";position:absolute;inset:0}   /* the whole card opens the repository */
+.gh-link:focus-visible{outline:none}
+.gh-card:has(.gh-link:focus-visible){outline:2px solid var(--amber);outline-offset:-2px}
+.gh-card:hover .gh-link{border-color:var(--bone);color:#fff}
+.gh-arrow{display:inline-block;transition:transform .5s var(--ease-out)}
+.gh-card:hover .gh-arrow,.gh-link:focus-visible .gh-arrow{transform:translate3d(5px,0,0)}
+@media (max-width:1000px){.gh-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.gh-grid{grid-template-columns:1fr}.gh-card{min-height:0}}
 
-/* ---------- project dialog ---------- */
-dialog{background:var(--ink-2);color:var(--bone);border:1px solid rgba(255,154,31,.5);border-radius:12px;width:min(580px,calc(100vw - 32px));max-height:calc(100svh - 48px);padding:0;box-shadow:0 0 80px rgba(255,140,30,.2);transform-origin:50% 50%}
-dialog[open]{animation:dlgIn .55s var(--ease-out)}
-dialog.flip[open]{animation:none}
-dialog[open]::backdrop{animation:fade .45s ease}
-dialog.closing{animation:dlgOut .26s ease forwards}
-dialog.closing::backdrop{animation:fadeOut .26s ease forwards}
-@keyframes dlgIn{from{opacity:0;transform:translate3d(0,28px,0) scale(.97)}}
-@keyframes dlgOut{to{opacity:0;transform:translate3d(0,14px,0) scale(.98)}}
-@keyframes fadeOut{to{opacity:0}}
-dialog::backdrop{background:rgba(0,0,0,.74);backdrop-filter:blur(5px)}
-.dlg-body{padding:clamp(22px,4vw,38px);overflow:auto;max-height:calc(100svh - 50px)}
-dialog h3{font-family:var(--f-display);font-stretch:var(--wide);font-weight:800;text-transform:uppercase;letter-spacing:-.02em;font-size:clamp(1.5rem,3.6vw,2rem);line-height:1;margin:8px 0 14px;text-wrap:balance}
-dialog p{color:var(--ash);margin:0 0 6px}
-.dlg-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
-.dlg-nav{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:26px;padding-top:16px;border-top:1px solid var(--line)}
-.dlg-nav .pair{display:flex;gap:8px}
 .btn{display:inline-flex;align-items:center;gap:8px;background:var(--amber);color:var(--ink);border:1px solid var(--amber);padding:.8em 1.3em;border-radius:2px;font-family:var(--f-body);font-weight:600;letter-spacing:0;font-size:.9375rem;cursor:pointer;text-decoration:none;transition:transform .5s var(--ease-out),background-color .3s,color .3s,border-color .3s}
 .btn.ghost{background:none;color:var(--bone);border-color:var(--line)}
 .btn.ghost:hover{border-color:var(--amber);color:var(--amber)}
 .btn:not(.ghost):hover{background:#ffb04d}
-.btn:active,.mini:active,.chips button:active,.room-ui button:active{scale:.96}
-.btn,.mini,.chips button,.room-ui button{transition-property:transform,scale,background-color,color,border-color;transition-duration:.5s,.14s,.3s,.3s,.3s}
+.btn:active,.mini:active,.chips button:active{scale:.96}
+.btn,.mini,.chips button{transition-property:transform,scale,background-color,color,border-color;transition-duration:.5s,.14s,.3s,.3s,.3s}
 
 /* ---------- reel 5: finale ---------- */
 .finale{position:relative;overflow:hidden;text-align:center;background:radial-gradient(ellipse 60% 55% at 50% 70%,rgba(196,66,15,.38),transparent 70%),var(--ink)}
@@ -499,22 +472,6 @@ a.v:hover{color:var(--amber)}
 @media (max-width:900px){.sinc-grid{grid-template-columns:1fr}.sinc-mark img{width:min(58%,260px)}.sinc-ring{width:min(76%,340px)}}
 @media (max-width:520px){.sinc-facts{grid-template-columns:1fr}}
 
-/* ---------- project index (static, crawlable) ---------- */
-.pindex{max-width:1240px;margin:clamp(28px,5vh,48px) auto 0}
-.pindex summary{cursor:pointer;display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:var(--step-body);color:var(--bone);padding:10px 0;list-style:none}
-.pindex summary::-webkit-details-marker{display:none}
-.pindex summary::after{content:"+";display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--amber);color:var(--ink);font-weight:700;transition:rotate .4s var(--ease-out)}
-.pindex[open] summary::after{rotate:45deg}
-.plist{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:4px}
-.plist li{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) auto;gap:6px 22px;align-items:baseline;padding:16px 18px;border-radius:10px;background:rgba(239,230,216,.03);transition:background-color .3s}
-.plist li:hover{background:rgba(255,154,31,.08)}
-.plist h3{margin:0;font-family:var(--f-display);font-stretch:var(--wide);font-weight:800;text-transform:uppercase;letter-spacing:-.02em;font-size:1.05rem}
-.plist .ps{font-size:var(--step-small);color:var(--ash)}
-.plist .pl{display:flex;gap:14px;flex-wrap:wrap}
-.plist .pl a{font-size:var(--step-small);font-weight:600;color:var(--amber);text-decoration:none;white-space:nowrap}
-.plist .pl a:hover{text-decoration:underline;text-underline-offset:.2em}
-.plist p{grid-column:1/-1;margin:0;font-size:var(--step-small);color:var(--bone);opacity:.85;max-width:90ch}
-@media (max-width:700px){.plist li{grid-template-columns:1fr}}
 
 /* ---------- the reel: a window that opens to the whole screen ---------- */
 .showreel{position:relative;height:250svh;background:var(--ink)}
@@ -587,7 +544,7 @@ a.v:hover{color:var(--amber)}
 
 <header class="top wrap">
   <div class="brand">
-    <a class="mono-mark" href="#top" aria-label="Back to top">E<span>.</span>S</a>
+    <a class="mono-mark" href="#top" aria-label="E.S: back to top">E<span>.</span>S</a>
     <span class="clock" id="clock" title="Local time in Bengaluru">BLR --:-- IST</span>
   </div>
   <nav aria-label="Sections">
@@ -739,40 +696,13 @@ a.v:hover{color:var(--amber)}
     <span class="reel-no" data-reveal="fade">REEL 04 / WORK</span>
     <div>
       <h2 id="workTitle" data-split>Real projects, <span class="serif">real stories</span></h2>
-      <p data-reveal style="--d:.2s">Drag the room or use the arrows to turn it. Open any screen for the story behind the build.</p>
+      <p data-reveal style="--d:.2s">Every public repository on <a class="gh-profile" href="https://github.com/sivakumarelango10-art" target="_blank" rel="noopener noreferrer">my GitHub</a>, pulled straight from the GitHub API, so new work shows up here on its own. Each card opens the source code.</p>
     </div>
   </div>
-  <div class="room" id="room" data-cursor="Drag" role="region" aria-roledescription="carousel" aria-label="Projects">
-    <div class="corner tl">15 builds<br>Web · AI · Real time<br>Drag to explore</div>
-    <div class="corner tr">Razorpay<br>WebSockets<br>OpenAI</div>
-    <div class="wall" id="wall"></div>
-    <div class="figure-room" data-figure aria-hidden="true"><div class="fig-in" data-reveal="rise"></div></div>
-    <div class="room-ui">
-      <button type="button" id="roomPrev" aria-label="Previous project">←</button>
-      <div class="now" aria-live="polite"><b id="nowNo"></b><span id="nowTitle"></span></div>
-      <button type="button" id="roomNext" aria-label="Next project">→</button>
-    </div>
-  </div>
-  <details class="pindex wrap" id="pindex">
-    <summary>All 15 projects as a list</summary>
-    <ul class="plist">
-      <li><h3>SkillSync AI</h3><span class="ps">Next.js · TypeScript · OpenAI API</span><span class="pl"><a href="https://github.com/elangoss121-dev/SkillSync-AI" target="_blank" rel="noopener">GitHub source ↗</a></span><p>An AI developer workspace that analyses codebases, generates AST-aware unit tests, refactors legacy functions and writes live documentation.</p></li>
-      <li><h3>SmartTravel</h3><span class="ps">React · Spring Boot · WebSockets</span><span class="pl"><a href="https://smart-travel.vercel.app/" target="_blank" rel="noopener">Launch live ↗</a><a href="https://github.com/sivakumarelango10-art/smart-travel" target="_blank" rel="noopener">GitHub source ↗</a></span><p>A full stack travel platform: flight and hotel search, live flight tracking, dynamic pricing, price freeze, seat and room selection, Razorpay payments, refunds and reviews. Built with JWT and Google OAuth, role-based access and real-time WebSocket updates, then hardened with code audits, concurrency checks and performance testing.</p></li>
-      <li><h3>KalviLearn</h3><span class="ps">JavaScript · Monaco Editor · RBAC</span><span class="pl"><a href="https://kalvilearn.vercel.app/" target="_blank" rel="noopener">Launch live ↗</a></span><p>A coding practice platform with structured modules and a Monaco-based editor for Python, C++, Java and JavaScript. Automated test-case evaluation, progress tracking, coding streaks, a revision system, and roles for super admins, campus managers, mentors and students.</p></li>
-      <li><h3>Zyrocore</h3><span class="ps">E-commerce · Razorpay · Admin</span><span class="pl"><a href="https://github.com/sivakumarelango10-art/zyrocore" target="_blank" rel="noopener">GitHub source ↗</a></span><p>A storefront for an Indian streetwear brand with size-based inventory, cart, secure checkout through Razorpay, and an admin dashboard for products, orders and stock.</p></li>
-      <li><h3>TeamSync Workspace</h3><span class="ps">Full stack · Project management</span><span class="pl"><a href="https://github.com/sivakumarelango10-art" target="_blank" rel="noopener">GitHub profile ↗</a></span><p>A collaborative workspace for teams: create workspaces, manage members, organise projects, assign tasks and track progress in one place.</p></li>
-      <li><h3>ReelTube</h3><span class="ps">Next.js · TypeScript · REST API</span><span class="pl"><a href="https://v0-mediagrab.vercel.app/" target="_blank" rel="noopener">Launch live ↗</a><a href="https://github.com/elangoss121-dev/v0-media-downloader" target="_blank" rel="noopener">GitHub source ↗</a></span><p>A fast media downloader that pulls HD video and audio from YouTube and Instagram through custom REST endpoints, with a client-side download queue.</p></li>
-      <li><h3>Kangeyan Heritage</h3><span class="ps">Next.js · Tailwind · E-commerce</span><span class="pl"><a href="https://kangeyan-heritage.vercel.app/" target="_blank" rel="noopener">Launch live ↗</a><a href="https://github.com/elangoss121-dev/Kangeyan-Heritage" target="_blank" rel="noopener">GitHub source ↗</a></span><p>A mobile-first store for a heritage apparel brand with pre-rendered pages, responsive images, category filters and a short checkout.</p></li>
-      <li><h3>NextGen Learning</h3><span class="ps">Next.js · TypeScript · Charts</span><span class="pl"><a href="https://nextgen-learning-dashboard-delta.vercel.app/dashboard" target="_blank" rel="noopener">Launch live ↗</a><a href="https://github.com/elangoss121-dev/nextgen-learning-dashboard" target="_blank" rel="noopener">GitHub source ↗</a></span><p>A learning analytics dashboard with live progress tracking, milestones and modular chart widgets.</p></li>
-      <li><h3>PGHub</h3><span class="ps">React · Next.js · Auth</span><span class="pl"><a href="https://pghub-seven.vercel.app/" target="_blank" rel="noopener">Launch live ↗</a><a href="https://github.com/elangoss121-dev/PGHub" target="_blank" rel="noopener">GitHub source ↗</a></span><p>Property management for PGs and hostels: room allocation, automated rent schedules, tenant records and role-based access.</p></li>
-      <li><h3>Prompt Craft</h3><span class="ps">React · CSS · Generative AI</span><span class="pl"></span><p>A prompt engineering sandbox that turns rough inputs into structured system instructions using templates.</p></li>
-      <li><h3>Sumz CLI</h3><span class="ps">Python · OpenAI API · Click</span><span class="pl"></span><p>A command-line tool that reads documents and writes clean bulleted summaries.</p></li>
-      <li><h3>TaskFlow Kanban</h3><span class="ps">React · Tailwind · Drag and drop</span><span class="pl"></span><p>A drag-and-drop board for daily developer routines that saves to local storage.</p></li>
-      <li><h3>Aura Player</h3><span class="ps">React · Tailwind · Web Audio API</span><span class="pl"></span><p>A dark minimal music player with live visualiser bars and playlist controls.</p></li>
-      <li><h3>PyTelegram Log Bot</h3><span class="ps">Python · Telegram Bot API</span><span class="pl"></span><p>A Python bot that watches system logs and forwards security warnings to Telegram channels.</p></li>
-      <li><h3>Aero Weather</h3><span class="ps">HTML5 · CSS3 · JavaScript</span><span class="pl"></span><p>A glassmorphic weather dashboard on open weather APIs with custom icons.</p></li>
-    </ul>
-  </details>
+  <p class="gh-status" id="ghStatus" role="status" aria-live="polite" data-state="saved">21 public repositories · last synced with GitHub on 27 Oct 2026</p>
+  <ul class="gh-grid" id="ghGrid">
+<li class="gh-card" data-reveal style="--d:0.00s"><h3 class="gh-name">elanxzz</h3><p class="gh-desc">Source code for elanxzz.me, the personal portfolio of Elango S: a static, scroll-driven site with an About page, a WhatsApp contact form and projects pulled from GitHub.</p><a class="gh-link" href="https://github.com/sivakumarelango10-art/elanxzz" target="_blank" rel="noopener noreferrer" data-cursor="GitHub">View on GitHub <span class="gh-arrow" aria-hidden="true">→</span><span class="sr"> (elanxzz, opens in a new tab)</span></a></li><li class="gh-card" data-reveal style="--d:0.08s"><h3 class="gh-name">sincommunity</h3><p class="gh-desc">The public website for SINC (Society for Innovation, Network &amp; Collaboration), built with React, Vite, TypeScript and GSAP, linking visitors to the SINC platform to join or sign in.</p><a class="gh-link" href="https://github.com/sivakumarelango10-art/sincommunity" target="_blank" rel="noopener noreferrer" data-cursor="GitHub">View on GitHub <span class="gh-arrow" aria-hidden="true">→</span><span class="sr"> (sincommunity, opens in a new tab)</span></a></li><li class="gh-card" data-reveal style="--d:0.16s"><h3 class="gh-name">jessie</h3><p class="gh-desc">A portfolio website for a physiotherapist, built as a dependency-free static page with a downloadable résumé, a link-preview image and Playwright scripts that check the layout.</p><a class="gh-link" href="https://github.com/sivakumarelango10-art/jessie" target="_blank" rel="noopener noreferrer" data-cursor="GitHub">View on GitHub <span class="gh-arrow" aria-hidden="true">→</span><span class="sr"> (jessie, opens in a new tab)</span></a></li><li class="gh-card" data-reveal style="--d:0.04s"><h3 class="gh-name">smart-travel</h3><p class="gh-desc">A full-stack travel booking platform for flights and hotels, with a Spring Boot and MongoDB backend, a React and TypeScript frontend, JWT authentication and Razorpay payments.</p><a class="gh-link" href="https://github.com/sivakumarelango10-art/smart-travel" target="_blank" rel="noopener noreferrer" data-cursor="GitHub">View on GitHub <span class="gh-arrow" aria-hidden="true">→</span><span class="sr"> (smart-travel, opens in a new tab)</span></a></li><li class="gh-card" data-reveal style="--d:0.12s"><h3 class="gh-name">Syllora</h3><p class="gh-desc">Front end for Syllora, a platform for planning a syllabus and tracking academic progress, centred on an animated, accessible sign-in experience written in plain HTML, CSS and JavaScript.</p><a class="gh-link" href="https://github.com/sivakumarelango10-art/Syllora" target="_blank" rel="noopener noreferrer" data-cursor="GitHub">View on GitHub <span class="gh-arrow" aria-hidden="true">→</span><span class="sr"> (Syllora, opens in a new tab)</span></a></li><li class="gh-card" data-reveal style="--d:0.20s"><h3 class="gh-name">MaamAI</h3><p class="gh-desc">An AI assistant for university faculty that gives each staff member a separate workspace for email, calendar and an AI review queue, with JWT authentication and Supabase PostgreSQL.</p><a class="gh-link" href="https://github.com/sivakumarelango10-art/MaamAI" target="_blank" rel="noopener noreferrer" data-cursor="GitHub">View on GitHub <span class="gh-arrow" aria-hidden="true">→</span><span class="sr"> (MaamAI, opens in a new tab)</span></a></li><li class="gh-card" data-reveal style="--d:0.08s"><h3 class="gh-name">SkillBridge</h3><p class="gh-desc">A platform where students and self-taught developers practise real-world workplace tasks, receive rubric-based feedback from automated checks and AI, and build a portfolio of their work.</p><a class="gh-link" href="https://github.com/sivakumarelango10-art/SkillBridge" target="_blank" rel="noopener noreferrer" data-cursor="GitHub">View on GitHub <span class="gh-arrow" aria-hidden="true">→</span><span class="sr"> (SkillBridge, opens in a new tab)</span></a></li><li class="gh-card" data-reveal style="--d:0.16s"><h3 class="gh-name">FixMyCity2</h3><p class="gh-desc">A mobile-first civic services app built with Next.js and Supabase where citizens report complaints and pay bills, workers handle assigned tasks, and administrators manage departments.</p><a class="gh-link" href="https://github.com/sivakumarelango10-art/FixMyCity2" target="_blank" rel="noopener noreferrer" data-cursor="GitHub">View on GitHub <span class="gh-arrow" aria-hidden="true">→</span><span class="sr"> (FixMyCity2, opens in a new tab)</span></a></li><li class="gh-card" data-reveal style="--d:0.24s"><h3 class="gh-name">FixMyCity</h3><p class="gh-desc">A civic services platform for reporting city issues, tracking complaints, using utility services and reading city information, with separate citizen and administrator dashboards.</p><a class="gh-link" href="https://github.com/sivakumarelango10-art/FixMyCity" target="_blank" rel="noopener noreferrer" data-cursor="GitHub">View on GitHub <span class="gh-arrow" aria-hidden="true">→</span><span class="sr"> (FixMyCity, opens in a new tab)</span></a></li><li class="gh-card" data-reveal style="--d:0.12s"><h3 class="gh-name">calculator</h3><p class="gh-desc">KV Calc, a browser calculator in plain HTML, CSS and JavaScript with standard and scientific modes, calculation history, memory keys, keyboard support and four switchable themes.</p><a class="gh-link" href="https://github.com/sivakumarelango10-art/calculator" target="_blank" rel="noopener noreferrer" data-cursor="GitHub">View on GitHub <span class="gh-arrow" aria-hidden="true">→</span><span class="sr"> (calculator, opens in a new tab)</span></a></li><li class="gh-card" data-reveal style="--d:0.20s"><h3 class="gh-name">restaurant</h3><p class="gh-desc">A restaurant management and point-of-sale system built with Next.js, TypeScript and Prisma, covering role-based staff access, menu management, table orders, billing and revenue reports.</p><a class="gh-link" href="https://github.com/sivakumarelango10-art/restaurant" target="_blank" rel="noopener noreferrer" data-cursor="GitHub">View on GitHub <span class="gh-arrow" aria-hidden="true">→</span><span class="sr"> (restaurant, opens in a new tab)</span></a></li><li class="gh-card" data-reveal style="--d:0.28s"><h3 class="gh-name">Elanxzz-Assistant</h3><p class="gh-desc">A local-first Electron and Python desktop assistant that turns typed or spoken instructions into verified actions such as file management, launching apps, terminal commands and browser automation.</p><a class="gh-link" href="https://github.com/sivakumarelango10-art/Elanxzz-Assistant" target="_blank" rel="noopener noreferrer" data-cursor="GitHub">View on GitHub <span class="gh-arrow" aria-hidden="true">→</span><span class="sr"> (Elanxzz-Assistant, opens in a new tab)</span></a></li><li class="gh-card" data-reveal style="--d:0.16s"><h3 class="gh-name">theervu-ai</h3><p class="gh-desc">An AI assistant that helps people in India prepare for visits to government offices, hospitals, banks and RTOs, with streamed guidance, checklists of what to bring and application tracking.</p><a class="gh-link" href="https://github.com/sivakumarelango10-art/theervu-ai" target="_blank" rel="noopener noreferrer" data-cursor="GitHub">View on GitHub <span class="gh-arrow" aria-hidden="true">→</span><span class="sr"> (theervu-ai, opens in a new tab)</span></a></li><li class="gh-card" data-reveal style="--d:0.24s"><h3 class="gh-name">Redbloom</h3><p class="gh-desc">A generative art piece for the browser in which a procedural flower blooms, grows and sways in response to hand gestures tracked through the webcam with MediaPipe.</p><a class="gh-link" href="https://github.com/sivakumarelango10-art/Redbloom" target="_blank" rel="noopener noreferrer" data-cursor="GitHub">View on GitHub <span class="gh-arrow" aria-hidden="true">→</span><span class="sr"> (Redbloom, opens in a new tab)</span></a></li><li class="gh-card" data-reveal style="--d:0.32s"><h3 class="gh-name">naruto-rasengan</h3><p class="gh-desc">A browser hand-tracking demo that summons a glowing rasengan above an open palm, using MediaPipe Hands in a single static HTML file, with all webcam processing kept on the device.</p><a class="gh-link" href="https://github.com/sivakumarelango10-art/naruto-rasengan" target="_blank" rel="noopener noreferrer" data-cursor="GitHub">View on GitHub <span class="gh-arrow" aria-hidden="true">→</span><span class="sr"> (naruto-rasengan, opens in a new tab)</span></a></li><li class="gh-card" data-reveal style="--d:0.20s"><h3 class="gh-name">HandConnect</h3><p class="gh-desc">A webcam hand-tracking AR experiment using MediaPipe Hands that draws neon skeletons, particles, electric arcs and mandalas around the hands, with synthesised sound from the Web Audio API.</p><a class="gh-link" href="https://github.com/sivakumarelango10-art/HandConnect" target="_blank" rel="noopener noreferrer" data-cursor="GitHub">View on GitHub <span class="gh-arrow" aria-hidden="true">→</span><span class="sr"> (HandConnect, opens in a new tab)</span></a></li><li class="gh-card" data-reveal style="--d:0.28s"><h3 class="gh-name">Doctor-Strange</h3><p class="gh-desc">A single-file browser AR experience inspired by Doctor Strange, where hand gestures tracked with MediaPipe cast spell trails, shields and portals rendered on an HTML5 canvas.</p><a class="gh-link" href="https://github.com/sivakumarelango10-art/Doctor-Strange" target="_blank" rel="noopener noreferrer" data-cursor="GitHub">View on GitHub <span class="gh-arrow" aria-hidden="true">→</span><span class="sr"> (Doctor-Strange, opens in a new tab)</span></a></li><li class="gh-card" data-reveal style="--d:0.36s"><h3 class="gh-name">alphaacademy</h3><p class="gh-desc">An animated website for Alpha Academy, a coaching academy for UGC NET English Literature, presenting the academy, its founder, its teaching approach and its study materials.</p><a class="gh-link" href="https://github.com/sivakumarelango10-art/alphaacademy" target="_blank" rel="noopener noreferrer" data-cursor="GitHub">View on GitHub <span class="gh-arrow" aria-hidden="true">→</span><span class="sr"> (alphaacademy, opens in a new tab)</span></a></li><li class="gh-card" data-reveal style="--d:0.24s"><h3 class="gh-name">E-invitation</h3><p class="gh-desc">An interactive, mobile-first wedding e-invitation with a timed opening reveal, scratch-to-reveal date, event timeline, venue map link, live countdown and swipeable photo gallery.</p><a class="gh-link" href="https://github.com/sivakumarelango10-art/E-invitation" target="_blank" rel="noopener noreferrer" data-cursor="GitHub">View on GitHub <span class="gh-arrow" aria-hidden="true">→</span><span class="sr"> (E-invitation, opens in a new tab)</span></a></li><li class="gh-card" data-reveal style="--d:0.32s"><h3 class="gh-name">guhas</h3><p class="gh-desc">An online store for GUHAS Health &amp; Organic built with Next.js and Prisma, with a product catalogue, cart, Razorpay checkout, blog and an admin panel for orders and products.</p><a class="gh-link" href="https://github.com/sivakumarelango10-art/guhas" target="_blank" rel="noopener noreferrer" data-cursor="GitHub">View on GitHub <span class="gh-arrow" aria-hidden="true">→</span><span class="sr"> (guhas, opens in a new tab)</span></a></li><li class="gh-card" data-reveal style="--d:0.40s"><h3 class="gh-name">zyrocore</h3><p class="gh-desc">An online store for ZYRØCORE, a minimalist clothing brand, built with Next.js and Supabase, with product pages, cart, wishlist, accounts, Razorpay checkout and an admin dashboard.</p><a class="gh-link" href="https://github.com/sivakumarelango10-art/zyrocore" target="_blank" rel="noopener noreferrer" data-cursor="GitHub">View on GitHub <span class="gh-arrow" aria-hidden="true">→</span><span class="sr"> (zyrocore, opens in a new tab)</span></a></li>
+  </ul>
 </section>
 
 <!-- OFF THE CLOCK -->
@@ -878,22 +808,6 @@ a.v:hover{color:var(--amber)}
 </footer>
 </main>
 
-<dialog id="proj" data-lenis-prevent aria-labelledby="pjTitle">
-  <div class="dlg-body">
-    <div class="label" id="pjNo"></div>
-    <h3 id="pjTitle">Project</h3>
-    <p id="pjBody"></p>
-    <div class="tags" id="pjTags"></div>
-    <div class="dlg-links" id="pjLinks"></div>
-    <div class="dlg-nav">
-      <div class="pair">
-        <button class="btn ghost" id="pjPrev" type="button" aria-label="Previous project">←</button>
-        <button class="btn ghost" id="pjNext" type="button" aria-label="Next project">→</button>
-      </div>
-      <button class="btn ghost" id="pjClose" type="button">Close</button>
-    </div>
-  </div>
-</dialog>
 
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
 <script>
@@ -958,25 +872,44 @@ const CONFIG = {
     { y: "2025", t: "Engineering genesis",      b: "Moved to Bengaluru and began a B.Tech in Computer Science Engineering, specialising in AI and Machine Learning, at Yenepoya University.", tags: ["Bengaluru","B.Tech CSE","AI / ML"] },
     { y: "2026", t: "Second year, now showing", b: "Going deeper into data structures, web architecture and prompt engineering while shipping AI-infused full stack apps.", tags: ["Next.js","OpenAI API","DSA"] },
     { y: "2029", t: "The five-year vision",     b: "Graduate as a full stack and AI engineer, design large-scale systems at a company like OpenAI, Google or NVIDIA, and mentor the next generation.", tags: ["Software Architect","AI Engineer","Mentor"] }
-  ],
-  projects: [
-    { t: "SkillSync AI",          s: "Next.js · TypeScript · OpenAI API",  b: "An AI developer workspace that analyses codebases, generates AST-aware unit tests, refactors legacy functions and writes live documentation.", glow: "rgba(255,154,31,.45)", links: [{ label: "GitHub source", url: "https://github.com/elangoss121-dev/SkillSync-AI" }] },
-    { t: "SmartTravel",           s: "React · Spring Boot · WebSockets",   b: "A full stack travel platform: flight and hotel search, live flight tracking, dynamic pricing, price freeze, seat and room selection, Razorpay payments, refunds and reviews. Built with JWT and Google OAuth, role-based access and real-time WebSocket updates, then hardened with code audits, concurrency checks and performance testing.", glow: "rgba(255,154,31,.5)", links: [{ label: "Launch live", url: "https://smart-travel.vercel.app/" }, { label: "GitHub source", url: "https://github.com/sivakumarelango10-art/smart-travel" }] },
-    { t: "KalviLearn",            s: "JavaScript · Monaco Editor · RBAC",  b: "A coding practice platform with structured modules and a Monaco-based editor for Python, C++, Java and JavaScript. Automated test-case evaluation, progress tracking, coding streaks, a revision system, and roles for super admins, campus managers, mentors and students.", glow: "rgba(196,66,15,.5)", links: [{ label: "Launch live", url: "https://kalvilearn.vercel.app/" }] },
-    { t: "Zyrocore",              s: "E-commerce · Razorpay · Admin",      b: "A storefront for an Indian streetwear brand with size-based inventory, cart, secure checkout through Razorpay, and an admin dashboard for products, orders and stock.", glow: "rgba(255,190,90,.38)", links: [{ label: "GitHub source", url: "https://github.com/sivakumarelango10-art/zyrocore" }] },
-    { t: "TeamSync Workspace",    s: "Full stack · Project management",   b: "A collaborative workspace for teams: create workspaces, manage members, organise projects, assign tasks and track progress in one place.", glow: "rgba(255,120,30,.42)", links: [{ label: "GitHub profile", url: "https://github.com/sivakumarelango10-art" }] },
-    { t: "ReelTube",              s: "Next.js · TypeScript · REST API",    b: "A fast media downloader that pulls HD video and audio from YouTube and Instagram through custom REST endpoints, with a client-side download queue.", glow: "rgba(196,66,15,.5)", links: [{ label: "Launch live", url: "https://v0-mediagrab.vercel.app/" }, { label: "GitHub source", url: "https://github.com/elangoss121-dev/v0-media-downloader" }] },
-    { t: "Kangeyan Heritage",     s: "Next.js · Tailwind · E-commerce",    b: "A mobile-first store for a heritage apparel brand with pre-rendered pages, responsive images, category filters and a short checkout.", glow: "rgba(255,190,90,.38)", links: [{ label: "Launch live", url: "https://kangeyan-heritage.vercel.app/" }, { label: "GitHub source", url: "https://github.com/elangoss121-dev/Kangeyan-Heritage" }] },
-    { t: "NextGen Learning",      s: "Next.js · TypeScript · Charts",      b: "A learning analytics dashboard with live progress tracking, milestones and modular chart widgets.", glow: "rgba(255,120,30,.42)", links: [{ label: "Launch live", url: "https://nextgen-learning-dashboard-delta.vercel.app/dashboard" }, { label: "GitHub source", url: "https://github.com/elangoss121-dev/nextgen-learning-dashboard" }] },
-    { t: "PGHub",                 s: "React · Next.js · Auth",             b: "Property management for PGs and hostels: room allocation, automated rent schedules, tenant records and role-based access.", glow: "rgba(255,154,31,.35)", links: [{ label: "Launch live", url: "https://pghub-seven.vercel.app/" }, { label: "GitHub source", url: "https://github.com/elangoss121-dev/PGHub" }] },
-    { t: "Prompt Craft",          s: "React · CSS · Generative AI",        b: "A prompt engineering sandbox that turns rough inputs into structured system instructions using templates.", glow: "rgba(196,66,15,.45)", links: [] },
-    { t: "Sumz CLI",              s: "Python · OpenAI API · Click",        b: "A command-line tool that reads documents and writes clean bulleted summaries.", glow: "rgba(255,200,120,.32)", links: [] },
-    { t: "TaskFlow Kanban",       s: "React · Tailwind · Drag and drop",   b: "A drag-and-drop board for daily developer routines that saves to local storage.", glow: "rgba(255,154,31,.38)", links: [] },
-    { t: "Aura Player",           s: "React · Tailwind · Web Audio API",   b: "A dark minimal music player with live visualiser bars and playlist controls.", glow: "rgba(196,66,15,.5)", links: [] },
-    { t: "PyTelegram Log Bot",    s: "Python · Telegram Bot API",          b: "A Python bot that watches system logs and forwards security warnings to Telegram channels.", glow: "rgba(255,120,30,.38)", links: [] },
-    { t: "Aero Weather",          s: "HTML5 · CSS3 · JavaScript",          b: "A glassmorphic weather dashboard on open weather APIs with custom icons.", glow: "rgba(255,190,90,.35)", links: [] }
   ]
+  // projects now come from GitHub (see src/projects.js and /api/projects); the old hand-written list is in config.v13.js
 };
+
+
+/* Projects: build-time snapshot of /api/projects (real GitHub data), refreshed live in setupProjects */
+/* Projects section: one card per public GitHub repository, with only its name, a short description
+   and a link to the repository. Shared by build.py (static, crawlable HTML) and the page (live refresh).
+   @typedef {{name:string, description:string, url:string, updatedAt:string}} Project */
+const GH = {
+  esc: s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]),
+  /** only real repository links are rendered */
+  safeUrl: u => /^https:\/\/github\.com\/[\w.-]+\/[\w.-]+\/?$/.test(u) ? u : null,
+  /** @param {Project} p @param {number} i */
+  card(p, i) {
+    const url = GH.safeUrl(p.url); if (!url) return '';
+    const e = GH.esc;
+    return `<li class="gh-card" data-reveal style="--d:${Math.min(i % 3 * .08 + Math.floor(i / 3) * .04, .4).toFixed(2)}s">`
+      + `<h3 class="gh-name">${e(p.name)}</h3>`
+      + `<p class="gh-desc">${e(p.description)}</p>`
+      + `<a class="gh-link" href="${e(url)}" target="_blank" rel="noopener noreferrer" data-cursor="GitHub">View on GitHub <span class="gh-arrow" aria-hidden="true">→</span><span class="sr"> (${e(p.name)}, opens in a new tab)</span></a>`
+      + `</li>`;
+  },
+  /** @param {Project[]} list */
+  cards: list => list.map(GH.card).join(''),
+  date: iso => new Date(iso).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'Asia/Kolkata' }),
+  status: {
+    saved: (n, at) => `${n} public ${n === 1 ? 'repository' : 'repositories'} · last synced with GitHub on ${GH.date(at)}`,
+    loading: () => 'Checking GitHub for new repositories…',
+    live: n => `${n} public ${n === 1 ? 'repository' : 'repositories'} · live from GitHub`,
+    empty: () => 'No public repositories to show yet.',
+    errorSaved: at => `GitHub couldn’t be reached just now, so this is the list saved on ${GH.date(at)}.`,
+    errorNone: () => 'GitHub couldn’t be reached just now. Please try again in a few minutes.',
+  },
+};
+// node only: if (typeof module !== 'undefined') module.exports = GH;
+
+const PROJECTS = {"list": [{"name": "elanxzz", "description": "Source code for elanxzz.me, the personal portfolio of Elango S: a static, scroll-driven site with an About page, a WhatsApp contact form and projects pulled from GitHub.", "url": "https://github.com/sivakumarelango10-art/elanxzz", "updatedAt": "2026-10-27T16:36:45Z"}, {"name": "sincommunity", "description": "The public website for SINC (Society for Innovation, Network & Collaboration), built with React, Vite, TypeScript and GSAP, linking visitors to the SINC platform to join or sign in.", "url": "https://github.com/sivakumarelango10-art/sincommunity", "updatedAt": "2026-10-27T08:20:40Z"}, {"name": "jessie", "description": "A portfolio website for a physiotherapist, built as a dependency-free static page with a downloadable résumé, a link-preview image and Playwright scripts that check the layout.", "url": "https://github.com/sivakumarelango10-art/jessie", "updatedAt": "2026-10-23T11:31:47Z"}, {"name": "smart-travel", "description": "A full-stack travel booking platform for flights and hotels, with a Spring Boot and MongoDB backend, a React and TypeScript frontend, JWT authentication and Razorpay payments.", "url": "https://github.com/sivakumarelango10-art/smart-travel", "updatedAt": "2026-10-23T09:11:45Z"}, {"name": "Syllora", "description": "Front end for Syllora, a platform for planning a syllabus and tracking academic progress, centred on an animated, accessible sign-in experience written in plain HTML, CSS and JavaScript.", "url": "https://github.com/sivakumarelango10-art/Syllora", "updatedAt": "2026-10-14T02:57:31Z"}, {"name": "MaamAI", "description": "An AI assistant for university faculty that gives each staff member a separate workspace for email, calendar and an AI review queue, with JWT authentication and Supabase PostgreSQL.", "url": "https://github.com/sivakumarelango10-art/MaamAI", "updatedAt": "2026-10-12T10:19:57Z"}, {"name": "SkillBridge", "description": "A platform where students and self-taught developers practise real-world workplace tasks, receive rubric-based feedback from automated checks and AI, and build a portfolio of their work.", "url": "https://github.com/sivakumarelango10-art/SkillBridge", "updatedAt": "2026-10-11T10:56:08Z"}, {"name": "FixMyCity2", "description": "A mobile-first civic services app built with Next.js and Supabase where citizens report complaints and pay bills, workers handle assigned tasks, and administrators manage departments.", "url": "https://github.com/sivakumarelango10-art/FixMyCity2", "updatedAt": "2026-10-09T05:33:56Z"}, {"name": "FixMyCity", "description": "A civic services platform for reporting city issues, tracking complaints, using utility services and reading city information, with separate citizen and administrator dashboards.", "url": "https://github.com/sivakumarelango10-art/FixMyCity", "updatedAt": "2026-10-08T23:42:51Z"}, {"name": "calculator", "description": "KV Calc, a browser calculator in plain HTML, CSS and JavaScript with standard and scientific modes, calculation history, memory keys, keyboard support and four switchable themes.", "url": "https://github.com/sivakumarelango10-art/calculator", "updatedAt": "2026-10-07T06:38:40Z"}, {"name": "restaurant", "description": "A restaurant management and point-of-sale system built with Next.js, TypeScript and Prisma, covering role-based staff access, menu management, table orders, billing and revenue reports.", "url": "https://github.com/sivakumarelango10-art/restaurant", "updatedAt": "2026-09-28T07:36:22Z"}, {"name": "Elanxzz-Assistant", "description": "A local-first Electron and Python desktop assistant that turns typed or spoken instructions into verified actions such as file management, launching apps, terminal commands and browser automation.", "url": "https://github.com/sivakumarelango10-art/Elanxzz-Assistant", "updatedAt": "2026-09-21T07:42:16Z"}, {"name": "theervu-ai", "description": "An AI assistant that helps people in India prepare for visits to government offices, hospitals, banks and RTOs, with streamed guidance, checklists of what to bring and application tracking.", "url": "https://github.com/sivakumarelango10-art/theervu-ai", "updatedAt": "2026-09-15T04:12:04Z"}, {"name": "Redbloom", "description": "A generative art piece for the browser in which a procedural flower blooms, grows and sways in response to hand gestures tracked through the webcam with MediaPipe.", "url": "https://github.com/sivakumarelango10-art/Redbloom", "updatedAt": "2026-09-14T09:14:36Z"}, {"name": "naruto-rasengan", "description": "A browser hand-tracking demo that summons a glowing rasengan above an open palm, using MediaPipe Hands in a single static HTML file, with all webcam processing kept on the device.", "url": "https://github.com/sivakumarelango10-art/naruto-rasengan", "updatedAt": "2026-09-11T04:07:37Z"}, {"name": "HandConnect", "description": "A webcam hand-tracking AR experiment using MediaPipe Hands that draws neon skeletons, particles, electric arcs and mandalas around the hands, with synthesised sound from the Web Audio API.", "url": "https://github.com/sivakumarelango10-art/HandConnect", "updatedAt": "2026-09-11T03:52:43Z"}, {"name": "Doctor-Strange", "description": "A single-file browser AR experience inspired by Doctor Strange, where hand gestures tracked with MediaPipe cast spell trails, shields and portals rendered on an HTML5 canvas.", "url": "https://github.com/sivakumarelango10-art/Doctor-Strange", "updatedAt": "2026-09-11T03:39:36Z"}, {"name": "alphaacademy", "description": "An animated website for Alpha Academy, a coaching academy for UGC NET English Literature, presenting the academy, its founder, its teaching approach and its study materials.", "url": "https://github.com/sivakumarelango10-art/alphaacademy", "updatedAt": "2026-09-06T09:44:35Z"}, {"name": "E-invitation", "description": "An interactive, mobile-first wedding e-invitation with a timed opening reveal, scratch-to-reveal date, event timeline, venue map link, live countdown and swipeable photo gallery.", "url": "https://github.com/sivakumarelango10-art/E-invitation", "updatedAt": "2026-08-30T15:58:54Z"}, {"name": "guhas", "description": "An online store for GUHAS Health & Organic built with Next.js and Prisma, with a product catalogue, cart, Razorpay checkout, blog and an admin panel for orders and products.", "url": "https://github.com/sivakumarelango10-art/guhas", "updatedAt": "2026-08-29T16:11:36Z"}, {"name": "zyrocore", "description": "An online store for ZYRØCORE, a minimalist clothing brand, built with Next.js and Supabase, with product pages, cart, wishlist, accounts, Razorpay checkout and an admin dashboard.", "url": "https://github.com/sivakumarelango10-art/zyrocore", "updatedAt": "2026-08-17T11:15:24Z"}], "at": "2026-10-27T16:37:03.261Z", "api": "/api/projects"};
 
 /* ===================================================================== */
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1155,7 +1088,7 @@ function setupEmbers() {
 function setupStrips() {
   const sets = {
     1: [['Full stack engineer', 'f'], ['AI / ML', 'a'], ['Next.js', ''], ['OpenAI', 'f'], ['Real time', ''], ['Bengaluru', 'a'], ['Prompt engineering', '']],
-    2: CONFIG.projects.slice(0, 9).map((p, i) => [p.t, i % 3 === 0 ? 'a' : i % 3 === 1 ? '' : 'f']),
+    2: PROJECTS.list.slice(0, 9).map((p, i) => [p.name, i % 3 === 0 ? 'a' : i % 3 === 1 ? '' : 'f']),
     3: [['Open to opportunities', 'f'], ['Internships', ''], ['Freelance builds', 'a'], ['Collaborations', ''], ["Let's talk", 'f']]
   };
   $$('[data-strip]').forEach((s, k) => {
@@ -1324,128 +1257,52 @@ function setupChrono() {
   apply(); dirty = false;
 }
 
-/* ---------- reel 4: projects room ---------- */
-function setupRoom() {
-  const room = $('#room'), wall = $('#wall'), P = CONFIG.projects, n = P.length, step = 360 / n, seen = watch(room);
-  const flat = () => innerWidth <= 700;
-  let R = 900, off = cinematic ? 200 : 0, tOff = 0, drag = null, suppress = false, front = -1, dirty = true, snapT, flying = cinematic;
-  const cards = P.map((p, i) => {
-    const b = document.createElement('button'); b.type = 'button'; b.className = 'screen'; b.style.setProperty('--glow', p.glow);
-    b.dataset.cursor = 'Open';
-    b.setAttribute('aria-label', `Open project ${i + 1}: ${p.t}`);
-    b.innerHTML = `<span class="spot"></span><span class="no">${pad(i + 1)} / ${pad(n)}</span><span class="ttl">${p.t}</span><span class="stk">${p.s}</span><span class="cta">OPEN</span>`;
-    b.addEventListener('click', e => { if (suppress) { e.preventDefault(); return; } if (!flat()) goTo(i); openProject(i, b); });
-    b.addEventListener('focus', () => { if (!flat() && !drag) goTo(i); });
-    wall.append(b); return b;
-  });
-  wall.addEventListener('pointermove', e => {
-    const s = e.target.closest('.screen'); if (!s || e.pointerType === 'touch') return;
-    const r = s.getBoundingClientRect();
-    s.style.setProperty('--mx', `${((e.clientX - r.left) / r.width * 100).toFixed(1)}%`);
-    s.style.setProperty('--my', `${((e.clientY - r.top) / r.height * 100).toFixed(1)}%`);
-  });
-  const wrapA = a => ((a + 180) % 360 + 360) % 360 - 180;
-  const nearest = i => { const t = -i * step; return t + Math.round((tOff - t) / 360) * 360; };
-  const goTo = i => { flying = false; tOff = nearest(i); };
-  const snap = () => { tOff = Math.round(tOff / step) * step; };
-  onMeasure(() => {
-    if (flat()) { cards.forEach(c => { c.style.transform = ''; c.style.opacity = ''; c.style.visibility = ''; c.tabIndex = 0; c._v = undefined; }); return; }
-    const cw = parseFloat(getComputedStyle(room).getPropertyValue('--cw')) || 380;
-    R = (cw + 36) * n / (2 * Math.PI); dirty = true;
-  });
-  function layout() {
-    for (let i = 0; i < n; i++) {
-      const c = cards[i], th = wrapA(i * step + off), a = Math.abs(th);
-      if (a > 98) { if (c._v !== 0) { c.style.visibility = 'hidden'; c.tabIndex = -1; c._v = 0; } continue; }
-      if (c._v !== 1) { c.style.visibility = ''; c.tabIndex = 0; c._v = 1; }
-      const r = th * Math.PI / 180, x = Math.sin(r) * R, z = -Math.cos(r) * R, yy = (i % 2 ? 1 : -1) * 40;
-      c.style.transform = `translate3d(${x.toFixed(1)}px,${yy}px,${z.toFixed(1)}px) rotateY(${(-th).toFixed(2)}deg)`;
-      c.style.opacity = clamp((98 - a) / 22, 0, 1).toFixed(3);
+/* ---------- reel 4: projects, live from GitHub ---------- */
+function setupProjects() {
+  const grid = $('#ghGrid'), status = $('#ghStatus');
+  if (!grid || !status) return;
+  const KEY = 'gh-projects-v1', TTL = 15 * 60 * 1000;
+  const sig = list => list.map(p => `${p.url}|${p.description}`).join('\n');
+  const set = (state, text) => { status.dataset.state = state; status.textContent = text; };
+  const render = (data, live) => {
+    const list = Array.isArray(data.projects) ? data.projects.filter(p => GH.safeUrl(p.url)) : [];
+    if (!list.length) { grid.innerHTML = ''; set('empty', GH.status.empty()); return; }
+    if (sig(list) !== sig(PROJECTS.list)) {
+      const known = new Set(PROJECTS.list.map(p => p.url));
+      grid.innerHTML = GH.cards(list);
+      PROJECTS.list = list;
+      if (!reduced) $$('.gh-card', grid).forEach((c, i) => {
+        if (known.has(c.querySelector('a').href)) return;
+        c.animate([{ opacity: 0, transform: 'translate3d(0,18px,0)' }, { opacity: 1, transform: 'none' }], { duration: 700, delay: Math.min(i, 8) * 40, easing: 'cubic-bezier(.16,.84,.24,1)', fill: 'backwards' });
+      });
+      rollify(grid);
     }
-    const f = ((Math.round(-off / step) % n) + n) % n;
-    if (f !== front) {
-      cards[front]?.classList.remove('front'); front = f; cards[f].classList.add('front');
-      $('#nowNo').textContent = `${pad(f + 1)} / ${pad(n)}`; $('#nowTitle').textContent = P[f].t;
-      if (!reduced && !flying) $('.now').animate([{ opacity: 0, transform: 'translate3d(0,8px,0)' }, { opacity: 1, transform: 'none' }], { duration: 420, easing: 'cubic-bezier(.16,.84,.24,1)' });
-    }
-  }
-  room.addEventListener('pointerdown', e => {
-    if (flat() || e.button !== 0 || e.target.closest('.room-ui')) return;
-    flying = false; drag = { x: e.clientX, t: performance.now(), v: 0, moved: 0 };
-  });
-  addEventListener('pointermove', e => {
-    if (!drag) return;
-    const now = performance.now(), dx = e.clientX - drag.x, k = .1;
-    drag.x = e.clientX; drag.moved += Math.abs(dx);
-    tOff += dx * k; off = tOff;
-    const inst = dx * k / Math.max(.008, (now - drag.t) / 1000); drag.v = drag.v * .7 + inst * .3; drag.t = now;
-    if (drag.moved > 6) room.classList.add('dragging');
-  }, { passive: true });
-  const release = () => {
-    if (!drag) return;
-    suppress = drag.moved > 6;
-    if (performance.now() - drag.t > 90) drag.v = 0;
-    tOff += clamp(drag.v * .25, -step * 3, step * 3); snap();
-    drag = null; room.classList.remove('dragging');
-    setTimeout(() => { suppress = false; }, 0);
+    set(live ? 'live' : 'saved', live ? GH.status.live(list.length) : GH.status.saved(list.length, data.fetchedAt));
   };
-  addEventListener('pointerup', release); addEventListener('pointercancel', release);
-  room.addEventListener('wheel', e => {
-    if (flat() || Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
-    e.preventDefault(); flying = false; tOff -= e.deltaX * .06; clearTimeout(snapT); snapT = setTimeout(snap, 140);
-  }, { passive: false });
-  $('#roomPrev').addEventListener('click', () => { flying = false; snap(); tOff += step; });
-  $('#roomNext').addEventListener('click', () => { flying = false; snap(); tOff -= step; });
-  room.addEventListener('keydown', e => {
-    if (flat() || !(e.key === 'ArrowLeft' || e.key === 'ArrowRight')) return;
-    e.preventDefault(); flying = false; snap(); tOff += e.key === 'ArrowLeft' ? step : -step;
-    cards[((Math.round(-tOff / step) % n) + n) % n].focus({ preventScroll: true });
-  });
-  onTick(dt => {
-    if (flat()) return;
-    if (!seen() || (flying && !entered(room, .7))) { if (dirty) { dirty = false; layout(); } return; }
-    if (!drag) {
-      const nv = reduced ? tOff : damp(off, tOff, flying ? 2.4 : 6.5, dt);
-      if (Math.abs(nv - off) < .002 && !dirty) { flying = false; return; }
-      off = Math.abs(nv - tOff) < .002 ? tOff : nv;
-    }
-    dirty = false; layout();
-  });
-
-  /* dialog: grows out of the screen you opened */
-  const dlg = $('#proj'), body = $('.dlg-body'); let cur = 0;
-  const fill = (i, anim) => {
-    cur = (i + n) % n; const p = P[cur];
-    $('#pjNo').textContent = `Project ${pad(cur + 1)} / ${pad(n)}`; $('#pjTitle').textContent = p.t; $('#pjBody').textContent = p.b;
-    $('#pjTags').innerHTML = p.s.split(' · ').map(t => `<span>${t}</span>`).join('');
-    $('#pjLinks').innerHTML = p.links.map((l, k) => `<a class="btn${k ? ' ghost' : ''}" href="${l.url}" target="_blank" rel="noopener">${l.label} ↗</a>`).join('');
-    rollify($('#pjLinks')); magnetize($$('#pjLinks .btn'));
-    if (anim && !reduced) body.animate([{ opacity: 0, transform: 'translate3d(0,10px,0)' }, { opacity: 1, transform: 'none' }], { duration: 420, easing: 'cubic-bezier(.16,.84,.24,1)' });
+  const fail = () => {
+    if (PROJECTS.list.length) set('error', GH.status.errorSaved(PROJECTS.at));
+    else { grid.innerHTML = ''; set('error', GH.status.errorNone()); }
   };
-  const openProject = (i, from) => {
-    fill(i, false);
-    const flip = !!from && !reduced && !flat();
-    dlg.classList.toggle('flip', flip);
-    dlg.showModal(); lenis?.stop();
-    if (flip) {
-      const a = from.getBoundingClientRect(), b = dlg.getBoundingClientRect();
-      const dx = a.left + a.width / 2 - (b.left + b.width / 2), dy = a.top + a.height / 2 - (b.top + b.height / 2);
-      dlg.animate([{ transform: `translate3d(${dx}px,${dy}px,0) scale(${a.width / b.width},${a.height / b.height})`, opacity: .5 }, { transform: 'none', opacity: 1 }], { duration: 720, easing: 'cubic-bezier(.16,.84,.24,1)' });
-      body.animate([{ opacity: 0 }, { opacity: 0, offset: .4 }, { opacity: 1 }], { duration: 720 });
-    }
+  const load = () => {
+    let cached = null;
+    try { cached = JSON.parse(sessionStorage.getItem(KEY) || 'null'); } catch { /* storage blocked */ }
+    if (cached && Date.now() - cached.at < TTL && cached.data) { render(cached.data, !cached.data.stale); return; }
+    set('loading', GH.status.loading());
+    if (!PROJECTS.list.length) grid.innerHTML = '';
+    const ctl = new AbortController(), t = setTimeout(() => ctl.abort(), 8000);
+    fetch(PROJECTS.api, { signal: ctl.signal, headers: { Accept: 'application/json' } })
+      .then(r => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
+      .then(d => {
+        if (!d || !Array.isArray(d.projects)) throw new Error('bad payload');
+        try { sessionStorage.setItem(KEY, JSON.stringify({ at: Date.now(), data: d })); } catch { /* storage full or blocked */ }
+        render(d, !d.stale);
+      })
+      .catch(fail)
+      .finally(() => clearTimeout(t));
   };
-  const closeDlg = () => {
-    if (!dlg.open || dlg.classList.contains('closing')) return;
-    if (reduced) { dlg.close(); return; }
-    dlg.classList.remove('flip'); dlg.classList.add('closing');
-    setTimeout(() => { dlg.classList.remove('closing'); dlg.close(); }, 250);
-  };
-  const stepDlg = d => { fill(cur + d, true); if (!flat()) goTo(cur); };
-  dlg.addEventListener('close', () => { lenis?.start(); if (!flat()) cards[cur].focus({ preventScroll: true }); });
-  dlg.addEventListener('cancel', e => { e.preventDefault(); closeDlg(); });
-  dlg.addEventListener('click', e => { if (e.target === dlg) closeDlg(); });
-  dlg.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') stepDlg(-1); if (e.key === 'ArrowRight') stepDlg(1); });
-  $('#pjClose').onclick = closeDlg; $('#pjPrev').onclick = () => stepDlg(-1); $('#pjNext').onclick = () => stepDlg(1);
+  // ask GitHub only when the section is getting close, once per visit
+  const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { io.disconnect(); load(); } }, { rootMargin: '900px 0px' });
+  io.observe(grid.closest('section'));
 }
 
 /* ---------- reel 5 ---------- */
@@ -1594,7 +1451,7 @@ function setupReel() {
 /* ---------- rolling figures ---------- */
 function setupFigs() {
   const since = 2020, years = new Date().getFullYear() - since;
-  const F = [[CONFIG.projects.length, 'projects shipped and in progress'], [CONFIG.stack.length, 'tools in the stack'], [years, `years writing code, since ${since}`]];
+  const F = [[PROJECTS.list.length, 'public repositories on GitHub'], [CONFIG.stack.length, 'tools in the stack'], [years, `years writing code, since ${since}`]];
   const box = $('#figs');
   box.innerHTML = F.map(([n, l]) => `<div><b data-n="${n}">${n}</b><span>${l}</span></div>`).join('');
   if (!cinematic) return;
@@ -1771,7 +1628,7 @@ function setupChrome() {
     else if (d > 0) { down += d; up = 0; if (down > 60 && !hidden) { hidden = true; top.classList.add('hide'); } }
     else if (d < 0) { up -= d; down = 0; if (up > 30 && hidden) { hidden = false; top.classList.remove('hide'); } }
     const probe = y + M.vh * .45;
-    let a = -1; secs.forEach((t, i) => { if (probe >= t) a = i; });
+    let a = -1, best = -Infinity; secs.forEach((t, i) => { if (probe >= t && t > best) { best = t; a = i; } });   // nav order ≠ page order
     if (a !== active) { active = a; links.forEach((l, i) => l.classList.toggle('on', i === a)); }
     let r = 0; rtops.forEach((t, i) => { if (probe >= t) r = i; });
     if (r !== ractive) { ractive = r; reelLinks.forEach((l, i) => l.classList.toggle('on', i === r)); }
@@ -1906,7 +1763,7 @@ async function intro() {
     const LOG = [
       [0, '$ npm run build'],
       [.12, '✓ stack: react · next · node · mongo'],
-      [.26, `✓ compiled ${CONFIG.projects.length} projects`],
+      [.26, `✓ fetched ${PROJECTS.list.length} repos from GitHub`],
       [.4, '› train · epoch 1/3 · loss 0.412'],
       [.54, '› train · epoch 2/3 · loss 0.108'],
       [.68, '› train · epoch 3/3 · acc 99.2%'],
@@ -1977,9 +1834,9 @@ async function intro() {
 
 /* ---------- boot ---------- */
 renderFigures(); makeTextures(); buildHero();
-setupScroll(); setupEmbers(); setupHero(); setupStrips(); setupReel(); setupStack(); setupFigs(); setupChrono(); setupRoom(); setupPrints(); setupFinale(); setupMonument();
+setupScroll(); setupEmbers(); setupHero(); setupStrips(); setupReel(); setupStack(); setupFigs(); setupChrono(); setupProjects(); setupPrints(); setupFinale(); setupMonument();
 setupReveal(); setupChrome(); setupDownloads();
-rollify(); setupCursor(); magnetize($$('.btn,.room-ui button,.top nav a.cv'));
+rollify(); setupCursor(); magnetize($$('.btn,.top nav a.cv'));
 measure();
 new ResizeObserver(remeasure).observe(document.body);
 addEventListener('resize', remeasure);
